@@ -36,5 +36,13 @@ namespace CSharp_Test
 
             MessageBox.Show(txbProva.Lines[0]);
         }
+
+        private void buttonFast_MouseHover(object sender, EventArgs e)
+        {
+            Random n = new Random();
+            Main main = new Main();
+
+            buttonFast.Location = new Point(n.Next(main.Width), n.Next(main.Height));
+        }
     }
 }

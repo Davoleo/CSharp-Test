@@ -31,6 +31,7 @@
             this.buttonSomma = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txbProva = new System.Windows.Forms.TextBox();
+            this.buttonFast = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSomma
@@ -58,15 +59,27 @@
             this.txbProva.Location = new System.Drawing.Point(265, 12);
             this.txbProva.Multiline = true;
             this.txbProva.Name = "txbProva";
+            this.txbProva.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txbProva.Size = new System.Drawing.Size(100, 94);
             this.txbProva.TabIndex = 2;
             this.txbProva.Text = "12345\r\n67890";
+            // 
+            // buttonFast
+            // 
+            this.buttonFast.Location = new System.Drawing.Point(12, 165);
+            this.buttonFast.Name = "buttonFast";
+            this.buttonFast.Size = new System.Drawing.Size(75, 23);
+            this.buttonFast.TabIndex = 3;
+            this.buttonFast.Text = "Io fuggo";
+            this.buttonFast.UseVisualStyleBackColor = true;
+            this.buttonFast.MouseHover += new System.EventHandler(this.buttonFast_MouseHover);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 118);
+            this.ClientSize = new System.Drawing.Size(377, 200);
+            this.Controls.Add(this.buttonFast);
             this.Controls.Add(this.txbProva);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonSomma);
@@ -82,6 +95,7 @@
         private System.Windows.Forms.Button buttonSomma;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txbProva;
+        private System.Windows.Forms.Button buttonFast;
     }
 }
 

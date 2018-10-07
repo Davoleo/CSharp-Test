@@ -48,7 +48,7 @@
             this.txbResult.Name = "txbResult";
             this.txbResult.ReadOnly = true;
             this.txbResult.Size = new System.Drawing.Size(54, 20);
-            this.txbResult.TabIndex = 10;
+            this.txbResult.TabIndex = 4;
             // 
             // menuStripRisultato
             // 
@@ -82,10 +82,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(161, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 20);
+            this.label1.Size = new System.Drawing.Size(19, 20);
             this.label1.TabIndex = 9;
             this.label1.Text = "=";
             // 
@@ -107,7 +107,7 @@
             this.txbNum1.Location = new System.Drawing.Point(12, 12);
             this.txbNum1.Name = "txbNum1";
             this.txbNum1.Size = new System.Drawing.Size(51, 20);
-            this.txbNum1.TabIndex = 8;
+            this.txbNum1.TabIndex = 1;
             this.txbNum1.MouseEnter += new System.EventHandler(this.txbNum1_MouseEnter);
             this.txbNum1.MouseLeave += new System.EventHandler(this.txbNum1_MouseLeave);
             this.txbNum1.Validating += new System.ComponentModel.CancelEventHandler(this.txbNum1_Validating);
@@ -119,17 +119,17 @@
             this.txbNum2.Location = new System.Drawing.Point(104, 12);
             this.txbNum2.Name = "txbNum2";
             this.txbNum2.Size = new System.Drawing.Size(51, 20);
-            this.txbNum2.TabIndex = 7;
+            this.txbNum2.TabIndex = 2;
             this.txbNum2.Validating += new System.ComponentModel.CancelEventHandler(this.txbNum2_Validating);
             // 
             // btnSomma
             // 
-            this.btnSomma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSomma.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSomma.ForeColor = System.Drawing.Color.Red;
             this.btnSomma.Location = new System.Drawing.Point(69, 6);
             this.btnSomma.Name = "btnSomma";
             this.btnSomma.Size = new System.Drawing.Size(29, 28);
-            this.btnSomma.TabIndex = 6;
+            this.btnSomma.TabIndex = 3;
             this.btnSomma.Text = "+";
             this.btnSomma.UseVisualStyleBackColor = true;
             this.btnSomma.Click += new System.EventHandler(this.sommaBtn_Click);
