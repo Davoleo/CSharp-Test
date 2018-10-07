@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CSharp_Test
 {
@@ -76,8 +77,19 @@ namespace CSharp_Test
 
             txbNum1.AutoCompleteCustomSource.Clear();
 
-            for (int i = 0; i < 1000; i += 5)
-                txbNum1.AutoCompleteCustomSource.Add(i.ToString().PadLeft(3, '0'));
+            StreamReader reader = new StreamReader(@"suggestion_list.txt");
+            String row = "";
+
+            while (!reader.EndOfStream)
+            { 
+                row = reader.ReadLine();
+                txbNum1.AutoCompleteCustomSource.Add(row);
+            }
+
+            reader.Close();
+
+            /*for (int i = 0; i < 500; i += 5)
+                txbNum1.AutoCompleteCustomSource.Add(i.ToString().PadLeft(3, '0'));*/
         }
     }
 }
