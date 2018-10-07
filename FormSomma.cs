@@ -40,31 +40,44 @@ namespace CSharp_Test
                 MessageBox.Show("Warning: il primo numero inserito non è un numero!", "FATAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txbNum1.Clear();
                 txbNum1.Focus();
+                txbNum1.BackColor = Color.Red;
             }
             else { 
-            if (!int.TryParse(txbNum2.Text, out num2))
-            {
-                MessageBox.Show("Warning: Il secondo numero inserito non è un numero!", "FATAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txbNum2.Clear();
-                txbNum2.Focus();
-            }
+                if (!int.TryParse(txbNum2.Text, out num2))
+                {
+                    MessageBox.Show("Warning: Il secondo numero inserito non è un numero!", "FATAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txbNum2.Clear();
+                    txbNum2.Focus();
+                    txbNum2.BackColor = Color.Red;
+                }
             else { 
-            
-            if(num1 < 0 || num2 < 0)
+                if(num1 < 0 || num2 < 0)
                 {
                     MessageBox.Show("Warning: Uno o due dei numeri inseriti è molto pessimistico!", "Avvertenza", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txbNum1.Text = txbNum2.Text = "";
                     txbNum1.Focus();
                 }
+                else
+                    {
+                        txbNum1.BackColor = txbNum2.BackColor = TextBox.DefaultBackColor;
+                        int num3 = num1 + num2;
+                        txbResult.Text = Convert.ToString(num3);
+                    }
 
-            else
-                {
-                    int num3 = num1 + num2;
-                    txbResult.Text = Convert.ToString(num3);
-                }
-                }
+                    }
             }
 
+        }
+
+        private void FormSomma_Load(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            BackColor = Color.FromArgb(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
+
+            txbNum1.AutoCompleteCustomSource.Clear();
+
+            for (int i = 0; i < 1000; i += 5)
+                txbNum1.AutoCompleteCustomSource.Add(i.ToString().PadLeft(3, '0'));
         }
     }
 }

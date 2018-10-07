@@ -55,6 +55,18 @@
             // 
             // txbNum1
             // 
+            this.txbNum1.AutoCompleteCustomSource.AddRange(new string[] {
+            "1005",
+            "1010",
+            "1015",
+            "1020",
+            "2000",
+            "2005",
+            "2010",
+            "2015",
+            "2020"});
+            this.txbNum1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txbNum1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txbNum1.Location = new System.Drawing.Point(12, 12);
             this.txbNum1.Name = "txbNum1";
             this.txbNum1.Size = new System.Drawing.Size(51, 20);
@@ -62,6 +74,7 @@
             // 
             // txbNum2
             // 
+            this.txbNum2.BackColor = System.Drawing.SystemColors.Window;
             this.txbNum2.Location = new System.Drawing.Point(104, 12);
             this.txbNum2.Name = "txbNum2";
             this.txbNum2.Size = new System.Drawing.Size(51, 20);
@@ -96,6 +109,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Somma";
+            this.Load += new System.EventHandler(this.FormSomma_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
