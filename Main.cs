@@ -22,5 +22,19 @@ namespace CSharp_Test
             FormSomma somma = new FormSomma();
             somma.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            txbProva.CharacterCasing = CharacterCasing.Upper;
+
+            txbProva.Cursor = Cursors.NoMove2D;
+
+            MessageBox.Show(txbProva.Font.Bold.ToString());
+
+            txbProva.Font = new Font("Comics", 8, FontStyle.Bold);
+
+            MessageBox.Show(txbProva.Lines[0]);
+        }
     }
 }
