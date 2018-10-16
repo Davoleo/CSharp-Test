@@ -32,6 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.txbProva = new System.Windows.Forms.TextBox();
             this.buttonFast = new System.Windows.Forms.Button();
+            this.btnStrumenti = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSomma
@@ -74,11 +75,22 @@
             this.buttonFast.UseVisualStyleBackColor = true;
             this.buttonFast.MouseHover += new System.EventHandler(this.buttonFast_MouseHover);
             // 
+            // btnStrumenti
+            // 
+            this.btnStrumenti.Location = new System.Drawing.Point(12, 41);
+            this.btnStrumenti.Name = "btnStrumenti";
+            this.btnStrumenti.Size = new System.Drawing.Size(75, 23);
+            this.btnStrumenti.TabIndex = 4;
+            this.btnStrumenti.Text = "Strumenti";
+            this.btnStrumenti.UseVisualStyleBackColor = true;
+            this.btnStrumenti.Click += new System.EventHandler(this.btnStrumenti_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 200);
+            this.Controls.Add(this.btnStrumenti);
             this.Controls.Add(this.buttonFast);
             this.Controls.Add(this.txbProva);
             this.Controls.Add(this.button2);
@@ -96,6 +108,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txbProva;
         private System.Windows.Forms.Button buttonFast;
+        private System.Windows.Forms.Button btnStrumenti;
     }
 }
 

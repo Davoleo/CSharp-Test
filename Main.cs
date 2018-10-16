@@ -12,6 +12,7 @@ namespace CSharp_Test
 {
     public partial class Main : Form
     {
+
         public Main()
         {
             InitializeComponent();
@@ -43,6 +44,12 @@ namespace CSharp_Test
             Main main = new Main();
 
             buttonFast.Location = new Point(n.Next(main.Width), n.Next(main.Height));
+        }
+
+        private void btnStrumenti_Click(object sender, EventArgs e)
+        {
+            Checkbox tools = new Checkbox();
+            tools.ShowDialog();
         }
     }
 }
