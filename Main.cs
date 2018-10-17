@@ -57,8 +57,8 @@ namespace CSharp_Test
         {
             MessageBox.Show(data.GetGiorno().ToString());
 
-            data.mm = 11;
-            MessageBox.Show(data.mm.ToString());
+            data.MM = 11;
+            MessageBox.Show(data.MM.ToString());
         }
     }
 }
