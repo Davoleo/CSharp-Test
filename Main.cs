@@ -12,6 +12,7 @@ namespace CSharp_Test
 {
     public partial class Main : Form
     {
+        Date data = new Date();
 
         public Main()
         {
@@ -50,6 +51,14 @@ namespace CSharp_Test
         {
             Checkbox tools = new Checkbox();
             tools.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(data.GetGiorno().ToString());
+
+            data.mm = 11;
+            MessageBox.Show(data.mm.ToString());
         }
     }
 }

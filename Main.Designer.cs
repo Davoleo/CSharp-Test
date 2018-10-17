@@ -33,6 +33,7 @@
             this.txbProva = new System.Windows.Forms.TextBox();
             this.buttonFast = new System.Windows.Forms.Button();
             this.btnStrumenti = new System.Windows.Forms.Button();
+            this.buttonDate = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSomma
@@ -85,11 +86,22 @@
             this.btnStrumenti.UseVisualStyleBackColor = true;
             this.btnStrumenti.Click += new System.EventHandler(this.btnStrumenti_Click);
             // 
+            // buttonDate
+            // 
+            this.buttonDate.Location = new System.Drawing.Point(265, 165);
+            this.buttonDate.Name = "buttonDate";
+            this.buttonDate.Size = new System.Drawing.Size(100, 23);
+            this.buttonDate.TabIndex = 5;
+            this.buttonDate.Text = "Oggetto Date";
+            this.buttonDate.UseVisualStyleBackColor = true;
+            this.buttonDate.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 200);
+            this.Controls.Add(this.buttonDate);
             this.Controls.Add(this.btnStrumenti);
             this.Controls.Add(this.buttonFast);
             this.Controls.Add(this.txbProva);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.TextBox txbProva;
         private System.Windows.Forms.Button buttonFast;
         private System.Windows.Forms.Button btnStrumenti;
+        private System.Windows.Forms.Button buttonDate;
     }
 }
 
