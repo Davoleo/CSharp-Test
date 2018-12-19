@@ -55,10 +55,13 @@ namespace CSharp_Test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(data.GetGiorno().ToString());
+            Date date = new Date(30, 11, 2018);
 
-            data.MM = 11;
-            MessageBox.Show(data.MM.ToString());
+            MessageBox.Show(date++.ToString());
+
+            MessageBox.Show((date += 50).ToString());
+
+            MessageBox.Show((date += 400).ToString());
         }
     }
 }
