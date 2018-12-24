@@ -9,7 +9,7 @@ namespace CSharp_Test
     class Date
     {
         //Stato Interno
-        int gg = 1, mm = 1, aaaa = 1970;
+        private int gg = 1, mm = 1, aaaa = 1970;
 
         //Propietà
         //Variabili fantasma che permettono di accedere in modo diretto alle variabili dello stato interno
@@ -165,8 +165,9 @@ namespace CSharp_Test
         //Overload dell'operatore ++ per aggiungere un giorno ad una data
         public static Date operator ++(Date d)
         {
-            d.Incrementa(1);
-            return d;
+            Date date = new Date(d.gg, d.mm, d.aaaa);
+            date.Incrementa(1);
+            return date;
         }
 
         //Overload dell'operatore + per sommare un intero ad una data
@@ -184,8 +185,9 @@ namespace CSharp_Test
         //Overload dell'operatore -- per togliere un giorno ad una data
         public static Date operator --(Date d)
         {
-            d.Decrementa(1);
-            return d;
+            Date date = new Date(d.gg, d.mm, d.aaaa);
+            date.Decrementa(1);
+            return date;
         }
 
         public static bool operator >(Date d1, Date d2)

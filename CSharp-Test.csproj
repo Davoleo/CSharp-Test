@@ -63,7 +63,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Date.cs" />
+    <Compile Include="date\Date.cs" />
+    <Compile Include="date\DateEN.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
