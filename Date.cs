@@ -188,6 +188,105 @@ namespace CSharp_Test
             return d;
         }
 
+        public static bool operator >(Date d1, Date d2)
+        {
+            if (d1.aaaa > d2.aaaa)
+                return true;
+            else if (d1.aaaa < d2.aaaa)
+                return false;
+            else if (d1.mm > d2.mm)
+                return true;
+            else if (d1.mm < d2.mm)
+                return false;
+            else if (d1.gg > d2.gg)
+                return true;
+            else if (d1.gg < d2.gg)
+                return false;
+            else
+                return false;
+        }
+
+        public static bool operator ==(Date d1, Date d2)
+        {
+            if (d1.aaaa == d2.aaaa && d1.mm == d2.mm && d1.gg == d2.gg)
+                return true;
+            else
+                return false;
+        }
+        public static bool operator !=(Date d1, Date d2)
+        {
+            if (d1.aaaa != d2.aaaa || d1.mm != d2.mm || d1.gg != d2.gg)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool operator <(Date d1, Date d2)
+        {
+            if (!(d1 > d2) && (d1 != d2))
+                return true;
+            else
+                return false;
+        }
+
+        //Broken
+        public string GetMonthName()
+        {
+            string month = "";
+
+            switch (mm)
+            {
+                case 1:
+                    month = "January";
+                    break;
+                case 2:
+                    month = "February";
+                    break;
+                case 3:
+                    month = "March";
+                    break;
+                case 4:
+                    month = "April";
+                    break;
+                case 5:
+                    month = "May";
+                    break;
+                case 6:
+                    month = "June";
+                    break;
+                case 7:
+                    month = "July";
+                    break;
+                case 8:
+                    month = "August";
+                    break;
+                case 9:
+                    month = "September";
+                    break;
+                case 10:
+                    month = "October";
+                    break;
+                case 11:
+                    month = "November";
+                    break;
+                default:
+                    month = "December";
+                    break;
+            }
+            return month;
+        }
+
+        public static List<Date> GetFestivityList()
+        {
+            List<Date> elenco = new List<Date>();
+            elenco.Add(new Date(1, 1, 2019));
+            elenco.Add(new Date(6, 1, 2019));
+            elenco.Add(new Date(2, 6, 2019));
+            //ecc...
+
+            return elenco;
+        }
+
         //Override del metodo ToString applicato alla classe e al formato delle date
         public override string ToString()
         {

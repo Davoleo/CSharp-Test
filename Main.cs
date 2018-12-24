@@ -62,6 +62,20 @@ namespace CSharp_Test
             MessageBox.Show((date += 50).ToString());
 
             MessageBox.Show((date += 400).ToString());
+
+            Date d1 = new Date(7, 1, 2020);
+            Date d2 = new Date(1, 1, 2020);
+
+            if (d1 > d2)
+                MessageBox.Show("d1 è maggiore di d2");
+            else
+                MessageBox.Show("d1 non è maggiore di d2");
+
+            MessageBox.Show(date.GetMonthName());
+
+            foreach (Date d in Date.GetFestivityList())
+                listFestivities.Items.Add(d);
+
         }
     }
 }

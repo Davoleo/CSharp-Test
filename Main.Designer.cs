@@ -34,6 +34,7 @@
             this.buttonFast = new System.Windows.Forms.Button();
             this.btnStrumenti = new System.Windows.Forms.Button();
             this.buttonDate = new System.Windows.Forms.Button();
+            this.listFestivities = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // buttonSomma
@@ -68,7 +69,7 @@
             // 
             // buttonFast
             // 
-            this.buttonFast.Location = new System.Drawing.Point(12, 165);
+            this.buttonFast.Location = new System.Drawing.Point(12, 199);
             this.buttonFast.Name = "buttonFast";
             this.buttonFast.Size = new System.Drawing.Size(75, 23);
             this.buttonFast.TabIndex = 3;
@@ -88,7 +89,7 @@
             // 
             // buttonDate
             // 
-            this.buttonDate.Location = new System.Drawing.Point(265, 165);
+            this.buttonDate.Location = new System.Drawing.Point(265, 199);
             this.buttonDate.Name = "buttonDate";
             this.buttonDate.Size = new System.Drawing.Size(100, 23);
             this.buttonDate.TabIndex = 5;
@@ -96,11 +97,20 @@
             this.buttonDate.UseVisualStyleBackColor = true;
             this.buttonDate.Click += new System.EventHandler(this.button1_Click);
             // 
+            // listFestivities
+            // 
+            this.listFestivities.FormattingEnabled = true;
+            this.listFestivities.Location = new System.Drawing.Point(265, 112);
+            this.listFestivities.Name = "listFestivities";
+            this.listFestivities.Size = new System.Drawing.Size(100, 82);
+            this.listFestivities.TabIndex = 6;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 200);
+            this.ClientSize = new System.Drawing.Size(377, 234);
+            this.Controls.Add(this.listFestivities);
             this.Controls.Add(this.buttonDate);
             this.Controls.Add(this.btnStrumenti);
             this.Controls.Add(this.buttonFast);
@@ -122,6 +132,7 @@
         private System.Windows.Forms.Button buttonFast;
         private System.Windows.Forms.Button btnStrumenti;
         private System.Windows.Forms.Button buttonDate;
+        private System.Windows.Forms.ListBox listFestivities;
     }
 }
 
