@@ -31,7 +31,6 @@
             this.CBbirthDate = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BToString = new System.Windows.Forms.Button();
-            this.BtnClear = new System.Windows.Forms.Button();
             this.BtnExport = new System.Windows.Forms.Button();
             this.BtnIndex = new System.Windows.Forms.Button();
             this.BtnRemove = new System.Windows.Forms.Button();
@@ -45,6 +44,9 @@
             this.BtnExtra = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.BtnExtra2 = new System.Windows.Forms.Button();
+            this.CBcities = new System.Windows.Forms.ComboBox();
+            this.BtnClear = new System.Windows.Forms.Button();
+            this.BtnAddCity = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.UDrow)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,16 +77,6 @@
             this.BToString.Text = "Date String";
             this.BToString.UseVisualStyleBackColor = true;
             this.BToString.Click += new System.EventHandler(this.BToString_Click);
-            // 
-            // BtnClear
-            // 
-            this.BtnClear.Location = new System.Drawing.Point(12, 83);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(84, 23);
-            this.BtnClear.TabIndex = 3;
-            this.BtnClear.Text = "Delete All";
-            this.BtnClear.UseVisualStyleBackColor = true;
-            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // BtnExport
             // 
@@ -208,11 +200,49 @@
             this.BtnExtra2.UseVisualStyleBackColor = true;
             this.BtnExtra2.Click += new System.EventHandler(this.BtnExtra2_Click);
             // 
+            // CBcities
+            // 
+            this.CBcities.FormattingEnabled = true;
+            this.CBcities.Items.AddRange(new object[] {
+            "Milano",
+            "Torino",
+            "Bologna",
+            "Roma",
+            "Ravenna",
+            "Cremona",
+            "Bergamo"});
+            this.CBcities.Location = new System.Drawing.Point(221, 170);
+            this.CBcities.Name = "CBcities";
+            this.CBcities.Size = new System.Drawing.Size(74, 21);
+            this.CBcities.TabIndex = 17;
+            this.CBcities.SelectedIndexChanged += new System.EventHandler(this.CBcities_SelectedIndexChanged);
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.Location = new System.Drawing.Point(12, 83);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(84, 23);
+            this.BtnClear.TabIndex = 3;
+            this.BtnClear.Text = "Delete All";
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
+            // BtnAddCity
+            // 
+            this.BtnAddCity.Location = new System.Drawing.Point(221, 197);
+            this.BtnAddCity.Name = "BtnAddCity";
+            this.BtnAddCity.Size = new System.Drawing.Size(74, 23);
+            this.BtnAddCity.TabIndex = 18;
+            this.BtnAddCity.Text = "ADD";
+            this.BtnAddCity.UseVisualStyleBackColor = true;
+            // 
             // ComboBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(307, 398);
+            this.Controls.Add(this.BtnAddCity);
+            this.Controls.Add(this.CBcities);
             this.Controls.Add(this.BtnExtra2);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.BtnExtra);
@@ -244,7 +274,6 @@
         private System.Windows.Forms.ComboBox CBbirthDate;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BToString;
-        private System.Windows.Forms.Button BtnClear;
         private System.Windows.Forms.Button BtnExport;
         private System.Windows.Forms.Button BtnIndex;
         private System.Windows.Forms.Button BtnRemove;
@@ -258,5 +287,8 @@
         private System.Windows.Forms.Button BtnExtra;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button BtnExtra2;
+        private System.Windows.Forms.ComboBox CBcities;
+        private System.Windows.Forms.Button BtnClear;
+        private System.Windows.Forms.Button BtnAddCity;
     }
 }

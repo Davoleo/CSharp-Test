@@ -130,5 +130,10 @@ namespace CSharp_Test
 
 
         }
+
+        private void CBcities_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Selected Intex: " + CBcities.SelectedIndex);
+        }
     }
 }
