@@ -77,5 +77,11 @@ namespace CSharp_Test
                 listFestivities.Items.Add(d);
 
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            ComboBox comboBoxForm = new ComboBox();
+            comboBoxForm.ShowDialog();
+        }
     }
 }

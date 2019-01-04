@@ -35,6 +35,7 @@
             this.btnStrumenti = new System.Windows.Forms.Button();
             this.buttonDate = new System.Windows.Forms.Button();
             this.listFestivities = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonSomma
@@ -105,11 +106,22 @@
             this.listFestivities.Size = new System.Drawing.Size(100, 82);
             this.listFestivities.TabIndex = 6;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 70);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "ComboBox";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(377, 234);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.listFestivities);
             this.Controls.Add(this.buttonDate);
             this.Controls.Add(this.btnStrumenti);
@@ -133,6 +145,7 @@
         private System.Windows.Forms.Button btnStrumenti;
         private System.Windows.Forms.Button buttonDate;
         private System.Windows.Forms.ListBox listFestivities;
+        private System.Windows.Forms.Button button1;
     }
 }
 

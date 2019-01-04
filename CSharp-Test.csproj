@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ComboBox.Designer.cs">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="date\Date.cs" />
     <Compile Include="date\DateEN.cs" />
     <Compile Include="Main.cs">
@@ -85,6 +91,10 @@
     <Compile Include="Checkbox.Designer.cs">
       <DependentUpon>Checkbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="punto\Point.cs" />
+    <EmbeddedResource Include="ComboBox.resx">
+      <DependentUpon>ComboBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\fideduo05.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\e-mails.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
