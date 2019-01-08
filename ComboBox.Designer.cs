@@ -260,6 +260,8 @@
             this.Controls.Add(this.BToString);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CBbirthDate);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ComboBox";
             this.Text = "ComboBox";
             this.Load += new System.EventHandler(this.ComboBox_Load);

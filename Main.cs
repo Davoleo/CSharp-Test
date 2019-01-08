@@ -83,5 +83,11 @@ namespace CSharp_Test
             ComboBox comboBoxForm = new ComboBox();
             comboBoxForm.ShowDialog();
         }
+
+        private void btnDateTimePicker_Click(object sender, EventArgs e)
+        {
+            DTPicker dtPicker = new DTPicker();
+            dtPicker.ShowDialog();
+        }
     }
 }
