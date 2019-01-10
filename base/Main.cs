@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CSharp_Test.CAD;
 
 namespace CSharp_Test
 {
@@ -17,6 +18,8 @@ namespace CSharp_Test
         public Main()
         {
             InitializeComponent();
+            MainCAD cad = new MainCAD();
+            cad.Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

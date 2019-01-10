@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -83,10 +83,10 @@
     <Compile Include="base\DTPicker.Designer.cs">
       <DependentUpon>DTPicker.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="base\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="base\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -103,15 +103,18 @@
     <Compile Include="base\Checkbox.Designer.cs">
       <DependentUpon>Checkbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="punto\Point.cs" />
+    <Compile Include="CAD\punto\Point.cs" />
     <EmbeddedResource Include="base\ComboBox.resx">
       <DependentUpon>ComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="base\DTPicker.resx">
       <DependentUpon>DTPicker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="base\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAD\MainCAD.resx">
+      <DependentUpon>MainCAD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
