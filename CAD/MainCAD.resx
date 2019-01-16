@@ -120,7 +120,46 @@
   <metadata name="colorSelection.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>146, 17</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnPoints.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA/SURBVFhH7c1BCgAgEMPA/f+nFQ9Ckd5kK0gGck4BAHBh
+        HEWd812EG2vt3FRr56ZaOzfVItx4FfV0DgD4RdUEd50zzaGqtdsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnLines.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVFhH7c7BCQAgEAPB679pRdAWkoczkPdmIGjdVbx4
+        5YC4eJS4eJS4eJS4eFQ1flTj/GZmA/QIRbsSqvG8AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnRectangles.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAySURBVFhH7c4xCgAgEAPB/P/TZ2txoAhXCDOQLsUGgEYN
+        7+jq9EiAAAEC/gmYHACbZAHmNUO90DwO/QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnSquares.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAvSURBVFhH7c7BCQAwDAMx7790s0Eo+Bck8NdcAD68crXm
+        RIAAAQIECLgT0AxgkQyu6TvFnAv0+QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnEllipsis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABYSURBVFhH7ZA7DgAgCMW4/6X9DI5GfDzj0iZsplQCAECg
+        HeYZ2QVPQhShLaIiKkc4fiE7bCccSC4CCPgeMHFElB0Vge2Kisi2fDGFGWn2ncxasBsAgAsiOlv3L9EK
+        IXiqAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAA0AICAQAAEABADoAgAA1gAAABAQEAABAAQAKAEAAL4DAAAwMAAAAQAIAKgOAADmBAAAICAAAAEA

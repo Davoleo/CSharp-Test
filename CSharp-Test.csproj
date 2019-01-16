@@ -69,6 +69,8 @@
     <Compile Include="base\ComboBox.Designer.cs">
       <DependentUpon>ComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CAD\geometria\Line.cs" />
+    <Compile Include="CAD\geometria\Shape.cs" />
     <Compile Include="CAD\MainCAD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,7 +105,7 @@
     <Compile Include="base\Checkbox.Designer.cs">
       <DependentUpon>Checkbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CAD\punto\Point.cs" />
+    <Compile Include="CAD\geometria\Point.cs" />
     <EmbeddedResource Include="base\ComboBox.resx">
       <DependentUpon>ComboBox.cs</DependentUpon>
     </EmbeddedResource>

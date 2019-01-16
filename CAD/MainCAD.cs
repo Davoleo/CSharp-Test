@@ -19,6 +19,9 @@ namespace CSharp_Test.CAD
             InitializeComponent();
         }
 
+        public enum Shapes {Point, Line, Rectangle, Square, Ellipsis}
+
+        private Shapes chosenShape = Shapes.Point;
         private Color chosenColor = Color.Black;
 
         private void btnDrawPoint_Click(object sender, EventArgs e)
@@ -56,6 +59,42 @@ namespace CSharp_Test.CAD
                 p = new Point((int)Math.Ceiling(r.NextDouble() * Width), (int)Math.Ceiling(r.NextDouble() * Width), Color.Chartreuse);
                 p.Draw(CreateGraphics());
             }
+        }
+
+        private void ShapeChoice_Click(object sender, EventArgs e)
+        {
+            foreach (ToolStripButton button in toolStrip1.Items)
+                    button.Checked = false;
+
+            (sender as ToolStripButton).Checked = true;
+
+            switch ((sender as ToolStripButton).Text)
+            {
+                case "POINTS":
+                    chosenShape = Shapes.Point;
+                    break;
+
+                case "LINES":
+                    chosenShape = Shapes.Line;
+                    break;
+
+                case "RECTANGLES":
+                    chosenShape = Shapes.Rectangle;
+                    break;
+
+                case "SQUARES":
+                    chosenShape = Shapes.Square;
+                    break;
+
+                case "ELLIPSIS":
+                    chosenShape = Shapes.Ellipsis;
+                    break;
+                    
+                default:
+                    chosenShape = Shapes.Point;
+                    break;
+            }
+
         }
     }
 }
