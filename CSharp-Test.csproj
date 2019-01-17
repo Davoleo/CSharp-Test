@@ -70,6 +70,7 @@
       <DependentUpon>ComboBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CAD\geometria\Line.cs" />
+    <Compile Include="CAD\geometria\Rectangle.cs" />
     <Compile Include="CAD\geometria\Shape.cs" />
     <Compile Include="CAD\MainCAD.cs">
       <SubType>Form</SubType>

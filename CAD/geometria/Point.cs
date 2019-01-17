@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CSharp_Test.CAD.geometria;
 
-namespace CSharp_Test.punto
+namespace CSharp_Test.CAD.geometria
 {
     class Point : Shape
     {
@@ -24,6 +24,18 @@ namespace CSharp_Test.punto
             this.x = x;
             this.y = y;
             ++count;
+        }
+
+        public int X
+        {
+	        get { return x; }
+	        set { x = value; }
+        }
+
+        public int Y
+        {
+	        get { return y; }
+	        set { y = value; }
         }
 
         public override void Draw(Graphics where)

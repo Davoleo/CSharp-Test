@@ -145,6 +145,8 @@
             this.Name = "MainCAD";
             this.Text = "Click on the form to draw!";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainCAD_MouseClick);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainCAD_MouseDown);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.MainCAD_MouseUp);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CSharp_Test.punto;
-using Point = CSharp_Test.punto.Point;
+using CSharp_Test.CAD.geometria;
+using Point = CSharp_Test.CAD.geometria.Point;
+using Rectangle = CSharp_Test.CAD.geometria.Rectangle;
 
 namespace CSharp_Test.CAD
 {
@@ -24,6 +25,9 @@ namespace CSharp_Test.CAD
         private Shapes chosenShape = Shapes.Point;
         private Color chosenColor = Color.Black;
 
+        //Beginning and End point coordinates to draw shapes on the form 
+        private int xStart = -1, yStart = -1, xEnd = -1, yEnd = -1;
+
         private void btnDrawPoint_Click(object sender, EventArgs e)
         {
             Point p = new Point((e as MouseEventArgs).X, (e as MouseEventArgs).Y, Color.Aqua);
@@ -33,6 +37,50 @@ namespace CSharp_Test.CAD
         private void btnCount_Click(object sender, EventArgs e)
         {
             Point.PointsCount();
+        }
+
+        private void MainCAD_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && chosenShape != Shapes.Point)
+            {
+                xStart = e.X;
+                yStart = e.Y;
+                xEnd = -1;
+                yEnd = -1;
+            }
+        }
+
+        private void MainCAD_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && chosenShape != Shapes.Point)
+            {
+                xEnd = e.X;
+                yEnd = e.Y;
+                int deltaX = xEnd - xStart;
+                int deltaY = yEnd - yStart;
+
+                switch (chosenShape)
+                {
+                    case Shapes.Line:
+                        Point start = new Point(xStart, yStart);
+                        Point end = new Point(xEnd, yEnd);
+                        Line line = new Line(start, end, chosenColor);
+                        line.Draw(CreateGraphics());
+                        break;
+
+                    case Shapes.Rectangle:
+							  start = new Point(xStart, yStart);
+							  Rectangle rectangle = new Rectangle(chosenColor, start, deltaX, deltaY);
+							  rectangle.Draw(CreateGraphics());
+                        break;
+
+                    case Shapes.Square:
+                        break;
+
+                    case Shapes.Ellipsis:
+                        break;
+                }
+            }
         }
 
         private void MainCAD_MouseClick(object sender, MouseEventArgs e)
