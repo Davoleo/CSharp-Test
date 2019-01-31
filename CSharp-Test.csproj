@@ -69,9 +69,11 @@
     <Compile Include="base\ComboBox.Designer.cs">
       <DependentUpon>ComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CAD\geometria\Ellipsis.cs" />
     <Compile Include="CAD\geometria\Line.cs" />
     <Compile Include="CAD\geometria\Rectangle.cs" />
     <Compile Include="CAD\geometria\Shape.cs" />
+    <Compile Include="CAD\geometria\Square.cs" />
     <Compile Include="CAD\MainCAD.cs">
       <SubType>Form</SubType>
     </Compile>

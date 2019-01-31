@@ -10,7 +10,7 @@ namespace CSharp_Test.CAD.geometria
 	class Rectangle : Shape
 	{
 		private Point upSx = null;
-		private int b = 0, h = 0;
+		protected int b = 0, h = 0;
 
 		public Rectangle(Color color, Point upSx, int b, int h) : base(color)
 		{
