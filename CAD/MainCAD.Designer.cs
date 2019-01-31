@@ -38,6 +38,7 @@
 			this.btnRectangles = new System.Windows.Forms.ToolStripButton();
 			this.btnSquares = new System.Windows.Forms.ToolStripButton();
 			this.btnEllipsis = new System.Windows.Forms.ToolStripButton();
+			this.btnAreaTot = new System.Windows.Forms.Button();
 			this.toolStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -133,17 +134,29 @@
 			this.btnEllipsis.Text = "ELLIPSIS";
 			this.btnEllipsis.Click += new System.EventHandler(this.ShapeChoice_Click);
 			// 
+			// btnAreaTot
+			// 
+			this.btnAreaTot.Location = new System.Drawing.Point(174, 336);
+			this.btnAreaTot.Name = "btnAreaTot";
+			this.btnAreaTot.Size = new System.Drawing.Size(75, 23);
+			this.btnAreaTot.TabIndex = 4;
+			this.btnAreaTot.Text = "Total Area";
+			this.btnAreaTot.UseVisualStyleBackColor = true;
+			this.btnAreaTot.Click += new System.EventHandler(this.btnAreaTot_Click);
+			// 
 			// MainCAD
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(603, 371);
+			this.Controls.Add(this.btnAreaTot);
 			this.Controls.Add(this.toolStrip1);
 			this.Controls.Add(this.btnCount);
 			this.Controls.Add(this.btnFillPoints);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainCAD";
 			this.Text = "Click on the form to draw!";
+			this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainCAD_Paint);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainCAD_KeyDown);
 			this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainCAD_KeyUp);
 			this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MainCAD_MouseClick);
@@ -167,5 +180,6 @@
         private System.Windows.Forms.ToolStripButton btnRectangles;
         private System.Windows.Forms.ToolStripButton btnSquares;
         private System.Windows.Forms.ToolStripButton btnEllipsis;
-    }
+		private System.Windows.Forms.Button btnAreaTot;
+	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,10 +23,13 @@ namespace CSharp_Test.CAD
 
         public enum Shapes {Point, Line, Rectangle, Square, Ellipsis}
 
+		  ArrayList canvas = new ArrayList();
+
         private Shapes chosenShape = Shapes.Point;
         private Color chosenColor = Color.Black;
 
         private bool ctrlKeyDown = false;
+        private static float totalArea = 0;
 
         //Beginning and End point coordinates to draw shapes on the form 
         private int xStart = -1, yStart = -1, xEnd = -1, yEnd = -1;
@@ -68,18 +72,21 @@ namespace CSharp_Test.CAD
                         Point end = new Point(xEnd, yEnd);
                         Line line = new Line(start, end, chosenColor);
                         line.Draw(CreateGraphics());
+                        canvas.Add(line);
                         break;
 
                     case Shapes.Rectangle:
 							  start = new Point(xStart, yStart);
 							  Rectangle rectangle = new Rectangle(chosenColor, start, deltaX, deltaY);
 							  rectangle.Draw(CreateGraphics());
+							  canvas.Add(rectangle);
                         break;
 
                     case Shapes.Square:
 	                    start = new Point(xStart, yStart);
 							  Square square = new Square(chosenColor, start, deltaX);
 	                    square.Draw(CreateGraphics());
+	                    canvas.Add(square);
 								break;
 
                     case Shapes.Ellipsis:
@@ -90,6 +97,7 @@ namespace CSharp_Test.CAD
 	                    start = new Point(xStart, yStart);
 							  Ellipsis ellipsis = new Ellipsis(chosenColor, start, deltaX,  deltaY);
 							  ellipsis.Draw(CreateGraphics());
+	                    canvas.Add(ellipsis);
                         break;
                 }
             }
@@ -119,6 +127,7 @@ namespace CSharp_Test.CAD
 					case Shapes.Point:
 						end = new Point(e.X, e.Y, chosenColor);
 						end.Draw(CreateGraphics());
+						canvas.Add(end);
 						break;
 
 					case Shapes.Line:
@@ -191,12 +200,29 @@ namespace CSharp_Test.CAD
 			}
 		}
 
+		private void MainCAD_Paint(object sender, PaintEventArgs e)
+		{	
+			
+			foreach (Shape s in canvas)
+			{
+				s.Draw(CreateGraphics());
+				totalArea = 0;
+				totalArea += s.GetArea();
+			}
+		}
+
+		private void btnAreaTot_Click(object sender, EventArgs e)
+		{
+			MessageBox.Show("Total Area of the shapes on the canvas: " + totalArea, "Area", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
 		private void MainCAD_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && chosenShape == Shapes.Point)
             {
                 Point p = new Point(e.X, e.Y, chosenColor);
                 p.Draw(CreateGraphics());
+                canvas.Add(p);
             }
             else if (e.Button == MouseButtons.Right)
             {
