@@ -25,6 +25,7 @@ namespace CSharp_Test.CAD
 
 		  ArrayList canvas = new ArrayList();
 
+		  private Options optionsForm;
         private Shapes chosenShape = Shapes.Point;
         private Color chosenColor = Color.Black;
 
@@ -37,7 +38,7 @@ namespace CSharp_Test.CAD
         private void btnDrawPoint_Click(object sender, EventArgs e)
         {
             Point p = new Point((e as MouseEventArgs).X, (e as MouseEventArgs).Y, Color.Aqua);
-            p.Draw(CreateGraphics());
+            p.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
         }
         private void MainCAD_MouseDown(object sender, MouseEventArgs e)
         {
@@ -65,21 +66,21 @@ namespace CSharp_Test.CAD
                         Point start = new Point(xStart, yStart);
                         Point end = new Point(xEnd, yEnd);
                         Line line = new Line(start, end, chosenColor);
-                        line.Draw(CreateGraphics());
+                        line.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
                         canvas.Add(line);
                         break;
 
                     case Shapes.Rectangle:
 							  start = new Point(xStart, yStart);
 							  Rectangle rectangle = new Rectangle(chosenColor, start, deltaX, deltaY);
-							  rectangle.Draw(CreateGraphics());
+							  rectangle.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 							  canvas.Add(rectangle);
                         break;
 
                     case Shapes.Square:
 	                    start = new Point(xStart, yStart);
 							  Square square = new Square(chosenColor, start, deltaX);
-	                    square.Draw(CreateGraphics());
+	                    square.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 	                    canvas.Add(square);
 								break;
 
@@ -90,7 +91,7 @@ namespace CSharp_Test.CAD
 
 	                    start = new Point(xStart, yStart);
 							  Ellipsis ellipsis = new Ellipsis(chosenColor, start, deltaX,  deltaY);
-							  ellipsis.Draw(CreateGraphics());
+							  ellipsis.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 	                    canvas.Add(ellipsis);
                         break;
                 }
@@ -120,20 +121,21 @@ namespace CSharp_Test.CAD
 				{
 					case Shapes.Point:
 						end = new Point(e.X, e.Y, chosenColor);
-						end.Draw(CreateGraphics());
+						end.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 						canvas.Add(end);
 						break;
 
 					case Shapes.Line:
 						//Cancella la vecchia linea disegnandone una nuova dello stesso colore
 						Line line = new Line(start, end, BackColor);
-						line.Draw(CreateGraphics());
+						line.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 						//Disegna la nuova linea
 						xEnd = e.X;
 						yEnd = e.Y;
 						end = new Point(xEnd, yEnd, chosenColor);
 						line = new Line(start, end, chosenColor);
-						line.Draw(CreateGraphics());
+						line.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
+						RenderRefresh();
 						break;
 
 					case Shapes.Rectangle:
@@ -144,7 +146,7 @@ namespace CSharp_Test.CAD
 
 						Rectangle rectangle =
 							new Rectangle(BackColor, new Point(xStart, yStart, chosenColor), deltaX, deltaY);
-						rectangle.Draw(CreateGraphics());
+						rectangle.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 
 						//Aggiorna la posizione del mouse
 						xEnd = e.X;
@@ -152,20 +154,22 @@ namespace CSharp_Test.CAD
 						deltaX = xEnd - xStart;
 						deltaY = yEnd - yStart;
 						rectangle = new Rectangle(chosenColor, new Point(xStart, yStart, chosenColor), deltaX, deltaY);
-						rectangle.Draw(CreateGraphics());
-					}
+						rectangle.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
+						RenderRefresh();
+						}
 						break;
 
 					case Shapes.Square:
 						deltaX = xEnd - xStart;
 						Square square = new Square(BackColor, new Point(xStart, yStart), deltaX);
-						square.Draw(CreateGraphics());
+						square.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 
 						xEnd = e.X;
 						yEnd = e.Y;
 						deltaX = xEnd - xStart;
 						square = new Square(chosenColor, new Point(xStart, yStart, chosenColor), deltaX);
-						square.Draw(CreateGraphics());
+						square.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
+						RenderRefresh();
 						break;
 
 					case Shapes.Ellipsis:
@@ -176,7 +180,7 @@ namespace CSharp_Test.CAD
 							deltaX = deltaY = Math.Max(deltaX, deltaY);
 
 						Ellipsis ellipsis = new Ellipsis(BackColor, new Point(xStart, yStart, chosenColor), deltaX, deltaY);
-						ellipsis.Draw(CreateGraphics());
+						ellipsis.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 
 						xEnd = e.X;
 						yEnd = e.Y;
@@ -187,7 +191,8 @@ namespace CSharp_Test.CAD
 							deltaY = deltaX = Math.Max(deltaX, deltaY);
 
 						ellipsis = new Ellipsis(chosenColor, new Point(xStart, yStart, chosenColor), deltaX, deltaY);
-						ellipsis.Draw(CreateGraphics());
+						ellipsis.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
+						RenderRefresh();
 						break;
 
 				}
@@ -195,11 +200,15 @@ namespace CSharp_Test.CAD
 		}
 
 		private void MainCAD_Paint(object sender, PaintEventArgs e)
-		{	
-			
+		{
+			RenderRefresh();
+		}
+
+		private void RenderRefresh()
+		{
 			foreach (Shape s in canvas)
 			{
-				s.Draw(CreateGraphics());
+				s.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 				totalArea = 0;
 				totalArea += s.GetArea();
 			}
@@ -215,6 +224,25 @@ namespace CSharp_Test.CAD
 			MessageBox.Show("Total Area of the shapes on the canvas: " + totalArea, "Area", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
+		private void openToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (openFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				
+			}
+		}
+
+		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (optionsForm == null)
+			{
+				optionsForm = new Options();
+				optionsForm.ShowDialog();
+			}
+			else
+				optionsForm.ShowDialog();
+		}
+
 		private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Point p;
@@ -223,7 +251,7 @@ namespace CSharp_Test.CAD
 			for (int i = 0; i < 10000; i++)
 			{
 				p = new Point((int)Math.Ceiling(r.NextDouble() * Width), (int)Math.Ceiling(r.NextDouble() * Width), Color.Chartreuse);
-				p.Draw(CreateGraphics());
+				p.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 			}
 		}
 
@@ -232,7 +260,7 @@ namespace CSharp_Test.CAD
             if (e.Button == MouseButtons.Left && chosenShape == Shapes.Point)
             {
                 Point p = new Point(e.X, e.Y, chosenColor);
-                p.Draw(CreateGraphics());
+                p.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
                 canvas.Add(p);
             }
             else if (e.Button == MouseButtons.Right)

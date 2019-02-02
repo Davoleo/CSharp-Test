@@ -80,6 +80,12 @@
     <Compile Include="CAD\MainCAD.Designer.cs">
       <DependentUpon>MainCAD.cs</DependentUpon>
     </Compile>
+    <Compile Include="CAD\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CAD\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
     <Compile Include="date\Date.cs" />
     <Compile Include="date\DateEN.cs" />
     <Compile Include="base\DTPicker.cs">
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CAD\MainCAD.resx">
       <DependentUpon>MainCAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CAD\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
