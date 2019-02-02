@@ -39,12 +39,6 @@ namespace CSharp_Test.CAD
             Point p = new Point((e as MouseEventArgs).X, (e as MouseEventArgs).Y, Color.Aqua);
             p.Draw(CreateGraphics());
         }
-
-        private void btnCount_Click(object sender, EventArgs e)
-        {
-            Point.PointsCount();
-        }
-
         private void MainCAD_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && chosenShape != Shapes.Point)
@@ -211,9 +205,26 @@ namespace CSharp_Test.CAD
 			}
 		}
 
-		private void btnAreaTot_Click(object sender, EventArgs e)
+		private void pointsCountToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Point.PointsCount();
+		}
+
+		private void totalAreaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			MessageBox.Show("Total Area of the shapes on the canvas: " + totalArea, "Area", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Point p;
+			Random r = new Random();
+
+			for (int i = 0; i < 10000; i++)
+			{
+				p = new Point((int)Math.Ceiling(r.NextDouble() * Width), (int)Math.Ceiling(r.NextDouble() * Width), Color.Chartreuse);
+				p.Draw(CreateGraphics());
+			}
 		}
 
 		private void MainCAD_MouseClick(object sender, MouseEventArgs e)
@@ -228,18 +239,6 @@ namespace CSharp_Test.CAD
             {
                 if (colorSelection.ShowDialog() == DialogResult.OK)
                     chosenColor = colorSelection.Color;
-            }
-        }
-
-        private void btnFillPoints_Click(object sender, EventArgs e)
-        {
-            Point p;
-            Random r = new Random();
-
-            for (int i = 0; i < 10000; i++)
-            {
-                p = new Point((int)Math.Ceiling(r.NextDouble() * Width), (int)Math.Ceiling(r.NextDouble() * Width), Color.Chartreuse);
-                p.Draw(CreateGraphics());
             }
         }
 
