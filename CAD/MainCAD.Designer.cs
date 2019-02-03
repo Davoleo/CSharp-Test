@@ -354,7 +354,7 @@
 
         #endregion
         private System.Windows.Forms.ColorDialog colorSelection;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        public System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnPoints;
         private System.Windows.Forms.ToolStripButton btnLines;
         private System.Windows.Forms.ToolStripButton btnRectangles;
