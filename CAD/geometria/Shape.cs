@@ -21,6 +21,16 @@ namespace CSharp_Test.CAD.geometria
             pen = new Pen(color);
         }
 
+        public Color Color
+        {
+	        get { return color; }
+	        set
+	        {
+		        color = value;
+		        pen = new Pen(color);
+	        }
+        }
+
         public abstract void Draw(Graphics where);
 
         public abstract float GetArea();

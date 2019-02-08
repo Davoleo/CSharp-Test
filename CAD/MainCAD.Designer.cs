@@ -31,6 +31,11 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainCAD));
 			this.colorSelection = new System.Windows.Forms.ColorDialog();
 			this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+			this.btnPoints = new System.Windows.Forms.ToolStripButton();
+			this.btnLines = new System.Windows.Forms.ToolStripButton();
+			this.btnRectangles = new System.Windows.Forms.ToolStripButton();
+			this.btnSquares = new System.Windows.Forms.ToolStripButton();
+			this.btnEllipsis = new System.Windows.Forms.ToolStripButton();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,24 +43,20 @@
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.shapesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-			this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.fillWPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.pointsCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.totalAreaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.btnPoints = new System.Windows.Forms.ToolStripButton();
-			this.btnLines = new System.Windows.Forms.ToolStripButton();
-			this.btnRectangles = new System.Windows.Forms.ToolStripButton();
-			this.btnSquares = new System.Windows.Forms.ToolStripButton();
-			this.btnEllipsis = new System.Windows.Forms.ToolStripButton();
 			this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.lineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.continuousToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.brokenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dashedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
+			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fillWPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pointsCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.totalAreaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.applyOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStrip1.SuspendLayout();
 			this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.SuspendLayout();
@@ -77,6 +78,63 @@
 			this.toolStrip1.Size = new System.Drawing.Size(37, 206);
 			this.toolStrip1.TabIndex = 3;
 			this.toolStrip1.Text = "toolStrip1";
+			// 
+			// btnPoints
+			// 
+			this.btnPoints.Checked = true;
+			this.btnPoints.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.btnPoints.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnPoints.Image = ((System.Drawing.Image)(resources.GetObject("btnPoints.Image")));
+			this.btnPoints.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.btnPoints.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnPoints.Name = "btnPoints";
+			this.btnPoints.Size = new System.Drawing.Size(35, 36);
+			this.btnPoints.Text = "POINTS";
+			this.btnPoints.Click += new System.EventHandler(this.ShapeChoice_Click);
+			// 
+			// btnLines
+			// 
+			this.btnLines.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnLines.Image = ((System.Drawing.Image)(resources.GetObject("btnLines.Image")));
+			this.btnLines.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.btnLines.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnLines.Name = "btnLines";
+			this.btnLines.Size = new System.Drawing.Size(35, 36);
+			this.btnLines.Text = "LINES";
+			this.btnLines.Click += new System.EventHandler(this.ShapeChoice_Click);
+			// 
+			// btnRectangles
+			// 
+			this.btnRectangles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnRectangles.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangles.Image")));
+			this.btnRectangles.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.btnRectangles.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnRectangles.Name = "btnRectangles";
+			this.btnRectangles.Size = new System.Drawing.Size(35, 36);
+			this.btnRectangles.Text = "RECTANGLES";
+			this.btnRectangles.Click += new System.EventHandler(this.ShapeChoice_Click);
+			// 
+			// btnSquares
+			// 
+			this.btnSquares.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnSquares.Image = ((System.Drawing.Image)(resources.GetObject("btnSquares.Image")));
+			this.btnSquares.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.btnSquares.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnSquares.Name = "btnSquares";
+			this.btnSquares.Size = new System.Drawing.Size(35, 36);
+			this.btnSquares.Text = "SQUARES";
+			this.btnSquares.Click += new System.EventHandler(this.ShapeChoice_Click);
+			// 
+			// btnEllipsis
+			// 
+			this.btnEllipsis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.btnEllipsis.Image = ((System.Drawing.Image)(resources.GetObject("btnEllipsis.Image")));
+			this.btnEllipsis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.btnEllipsis.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.btnEllipsis.Name = "btnEllipsis";
+			this.btnEllipsis.Size = new System.Drawing.Size(35, 36);
+			this.btnEllipsis.Text = "ELLIPSIS";
+			this.btnEllipsis.Click += new System.EventHandler(this.ShapeChoice_Click);
 			// 
 			// toolStripContainer1
 			// 
@@ -160,129 +218,6 @@
 			this.shapesToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
 			this.shapesToolStripMenuItem.Text = "Shapes";
 			// 
-			// toolStripComboBox1
-			// 
-			this.toolStripComboBox1.AutoCompleteCustomSource.AddRange(new string[] {
-            "Triangle",
-            "Rectangle",
-            "Square",
-            "Pentagon"});
-			this.toolStripComboBox1.Items.AddRange(new object[] {
-            "Triangle",
-            "Rectangle",
-            "Square",
-            "Pentagon"});
-			this.toolStripComboBox1.Name = "toolStripComboBox1";
-			this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
-			this.toolStripComboBox1.Text = "Polygon";
-			// 
-			// otherToolStripMenuItem
-			// 
-			this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fillWPointsToolStripMenuItem,
-            this.pointsCountToolStripMenuItem,
-            this.totalAreaToolStripMenuItem});
-			this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
-			this.otherToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-			this.otherToolStripMenuItem.Text = "Other";
-			// 
-			// fillWPointsToolStripMenuItem
-			// 
-			this.fillWPointsToolStripMenuItem.Name = "fillWPointsToolStripMenuItem";
-			this.fillWPointsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-			this.fillWPointsToolStripMenuItem.Text = "Fill w/ Points";
-			this.fillWPointsToolStripMenuItem.Click += new System.EventHandler(this.fillWPointsToolStripMenuItem_Click);
-			// 
-			// pointsCountToolStripMenuItem
-			// 
-			this.pointsCountToolStripMenuItem.Name = "pointsCountToolStripMenuItem";
-			this.pointsCountToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-			this.pointsCountToolStripMenuItem.Text = "Count Points";
-			this.pointsCountToolStripMenuItem.Click += new System.EventHandler(this.pointsCountToolStripMenuItem_Click);
-			// 
-			// totalAreaToolStripMenuItem
-			// 
-			this.totalAreaToolStripMenuItem.Name = "totalAreaToolStripMenuItem";
-			this.totalAreaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
-			this.totalAreaToolStripMenuItem.Text = "Total Area";
-			this.totalAreaToolStripMenuItem.Click += new System.EventHandler(this.totalAreaToolStripMenuItem_Click);
-			// 
-			// openFileDialog1
-			// 
-			this.openFileDialog1.FileName = "MiniCADFile ";
-			// 
-			// toolsToolStripMenuItem
-			// 
-			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.optionsToolStripMenuItem});
-			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
-			this.toolsToolStripMenuItem.Text = "Tools";
-			// 
-			// optionsToolStripMenuItem
-			// 
-			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.optionsToolStripMenuItem.Text = "Options...";
-			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
-			// 
-			// btnPoints
-			// 
-			this.btnPoints.Checked = true;
-			this.btnPoints.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.btnPoints.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnPoints.Image = ((System.Drawing.Image)(resources.GetObject("btnPoints.Image")));
-			this.btnPoints.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.btnPoints.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnPoints.Name = "btnPoints";
-			this.btnPoints.Size = new System.Drawing.Size(35, 36);
-			this.btnPoints.Text = "POINTS";
-			this.btnPoints.Click += new System.EventHandler(this.ShapeChoice_Click);
-			// 
-			// btnLines
-			// 
-			this.btnLines.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnLines.Image = ((System.Drawing.Image)(resources.GetObject("btnLines.Image")));
-			this.btnLines.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.btnLines.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnLines.Name = "btnLines";
-			this.btnLines.Size = new System.Drawing.Size(35, 36);
-			this.btnLines.Text = "LINES";
-			this.btnLines.Click += new System.EventHandler(this.ShapeChoice_Click);
-			// 
-			// btnRectangles
-			// 
-			this.btnRectangles.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnRectangles.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangles.Image")));
-			this.btnRectangles.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.btnRectangles.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnRectangles.Name = "btnRectangles";
-			this.btnRectangles.Size = new System.Drawing.Size(35, 36);
-			this.btnRectangles.Text = "RECTANGLES";
-			this.btnRectangles.Click += new System.EventHandler(this.ShapeChoice_Click);
-			// 
-			// btnSquares
-			// 
-			this.btnSquares.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnSquares.Image = ((System.Drawing.Image)(resources.GetObject("btnSquares.Image")));
-			this.btnSquares.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.btnSquares.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnSquares.Name = "btnSquares";
-			this.btnSquares.Size = new System.Drawing.Size(35, 36);
-			this.btnSquares.Text = "SQUARES";
-			this.btnSquares.Click += new System.EventHandler(this.ShapeChoice_Click);
-			// 
-			// btnEllipsis
-			// 
-			this.btnEllipsis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.btnEllipsis.Image = ((System.Drawing.Image)(resources.GetObject("btnEllipsis.Image")));
-			this.btnEllipsis.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-			this.btnEllipsis.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.btnEllipsis.Name = "btnEllipsis";
-			this.btnEllipsis.Size = new System.Drawing.Size(35, 36);
-			this.btnEllipsis.Text = "ELLIPSIS";
-			this.btnEllipsis.Click += new System.EventHandler(this.ShapeChoice_Click);
-			// 
 			// pointToolStripMenuItem
 			// 
 			this.pointToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pointToolStripMenuItem.Image")));
@@ -319,6 +254,80 @@
 			this.dashedToolStripMenuItem.Name = "dashedToolStripMenuItem";
 			this.dashedToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
 			this.dashedToolStripMenuItem.Text = "Dashed";
+			// 
+			// toolStripComboBox1
+			// 
+			this.toolStripComboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "Triangle",
+            "Rectangle",
+            "Square",
+            "Pentagon"});
+			this.toolStripComboBox1.Items.AddRange(new object[] {
+            "Triangle",
+            "Rectangle",
+            "Square",
+            "Pentagon"});
+			this.toolStripComboBox1.Name = "toolStripComboBox1";
+			this.toolStripComboBox1.Size = new System.Drawing.Size(121, 23);
+			this.toolStripComboBox1.Text = "Polygon";
+			// 
+			// toolsToolStripMenuItem
+			// 
+			this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionsToolStripMenuItem,
+            this.applyOptionsToolStripMenuItem});
+			this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+			this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+			this.toolsToolStripMenuItem.Text = "Tools";
+			// 
+			// optionsToolStripMenuItem
+			// 
+			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.optionsToolStripMenuItem.Text = "Options...";
+			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+			// 
+			// otherToolStripMenuItem
+			// 
+			this.otherToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fillWPointsToolStripMenuItem,
+            this.pointsCountToolStripMenuItem,
+            this.totalAreaToolStripMenuItem});
+			this.otherToolStripMenuItem.Name = "otherToolStripMenuItem";
+			this.otherToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+			this.otherToolStripMenuItem.Text = "Other";
+			// 
+			// fillWPointsToolStripMenuItem
+			// 
+			this.fillWPointsToolStripMenuItem.Name = "fillWPointsToolStripMenuItem";
+			this.fillWPointsToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.fillWPointsToolStripMenuItem.Text = "Fill w/ Points";
+			this.fillWPointsToolStripMenuItem.Click += new System.EventHandler(this.fillWPointsToolStripMenuItem_Click);
+			// 
+			// pointsCountToolStripMenuItem
+			// 
+			this.pointsCountToolStripMenuItem.Name = "pointsCountToolStripMenuItem";
+			this.pointsCountToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.pointsCountToolStripMenuItem.Text = "Count Points";
+			this.pointsCountToolStripMenuItem.Click += new System.EventHandler(this.pointsCountToolStripMenuItem_Click);
+			// 
+			// totalAreaToolStripMenuItem
+			// 
+			this.totalAreaToolStripMenuItem.Name = "totalAreaToolStripMenuItem";
+			this.totalAreaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.totalAreaToolStripMenuItem.Text = "Total Area";
+			this.totalAreaToolStripMenuItem.Click += new System.EventHandler(this.totalAreaToolStripMenuItem_Click);
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "MiniCADFile ";
+			// 
+			// applyOptionsToolStripMenuItem
+			// 
+			this.applyOptionsToolStripMenuItem.Name = "applyOptionsToolStripMenuItem";
+			this.applyOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.applyOptionsToolStripMenuItem.Text = "Apply Options";
+			this.applyOptionsToolStripMenuItem.Click += new System.EventHandler(this.applyOptionsToolStripMenuItem_Click);
 			// 
 			// MainCAD
 			// 
@@ -380,5 +389,6 @@
 		private System.Windows.Forms.OpenFileDialog openFileDialog1;
 		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem applyOptionsToolStripMenuItem;
 	}
 }

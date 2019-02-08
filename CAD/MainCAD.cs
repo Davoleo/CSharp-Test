@@ -23,7 +23,7 @@ namespace CSharp_Test.CAD
 
         public enum Shapes {Point, Line, Rectangle, Square, Ellipsis}
 
-		  ArrayList canvas = new ArrayList();
+		  ArrayList shapeList = new ArrayList();
 
 		  private Options optionsForm;
         private Shapes chosenShape = Shapes.Point;
@@ -67,21 +67,21 @@ namespace CSharp_Test.CAD
                         Point end = new Point(xEnd, yEnd);
                         Line line = new Line(start, end, chosenColor);
                         line.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
-                        canvas.Add(line);
+                        shapeList.Add(line);
                         break;
 
                     case Shapes.Rectangle:
 							  start = new Point(xStart, yStart);
 							  Rectangle rectangle = new Rectangle(chosenColor, start, deltaX, deltaY);
 							  rectangle.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
-							  canvas.Add(rectangle);
+							  shapeList.Add(rectangle);
                         break;
 
                     case Shapes.Square:
 	                    start = new Point(xStart, yStart);
 							  Square square = new Square(chosenColor, start, deltaX);
 	                    square.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
-	                    canvas.Add(square);
+	                    shapeList.Add(square);
 								break;
 
                     case Shapes.Ellipsis:
@@ -92,7 +92,7 @@ namespace CSharp_Test.CAD
 	                    start = new Point(xStart, yStart);
 							  Ellipsis ellipsis = new Ellipsis(chosenColor, start, deltaX,  deltaY);
 							  ellipsis.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
-	                    canvas.Add(ellipsis);
+	                    shapeList.Add(ellipsis);
                         break;
                 }
             }
@@ -122,7 +122,7 @@ namespace CSharp_Test.CAD
 					case Shapes.Point:
 						end = new Point(e.X, e.Y, chosenColor);
 						end.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
-						canvas.Add(end);
+						shapeList.Add(end);
 						break;
 
 					case Shapes.Line:
@@ -206,7 +206,7 @@ namespace CSharp_Test.CAD
 
 		private void RenderRefresh()
 		{
-			foreach (Shape s in canvas)
+			foreach (Shape s in shapeList)
 			{
 				s.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
 				totalArea = 0;
@@ -221,7 +221,7 @@ namespace CSharp_Test.CAD
 
 		private void totalAreaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			MessageBox.Show("Total Area of the shapes on the canvas: " + totalArea, "Area", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			MessageBox.Show("Total Area of the shapes on the shapeList: " + totalArea, "Area", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
 		private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,6 +243,11 @@ namespace CSharp_Test.CAD
 				optionsForm.ShowDialog();
 		}
 
+		private void applyOptionsToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+
+		}
+
 		private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Point p;
@@ -261,7 +266,7 @@ namespace CSharp_Test.CAD
             {
                 Point p = new Point(e.X, e.Y, chosenColor);
                 p.Draw(toolStripContainer1.ContentPanel.CreateGraphics());
-                canvas.Add(p);
+                shapeList.Add(p);
             }
             else if (e.Button == MouseButtons.Right)
             {

@@ -14,11 +14,11 @@ namespace CSharp_Test
     public partial class Main : Form
     {
         Date data = new Date();
+        public static MainCAD cad = new MainCAD();
 
-        public Main()
+		public Main()
         {
             InitializeComponent();
-            MainCAD cad = new MainCAD();
             cad.Show();
         }
 

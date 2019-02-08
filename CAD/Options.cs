@@ -27,18 +27,21 @@ namespace CSharp_Test.CAD
 
 		private void Options_Load(object sender, EventArgs e)
 		{
+			int i = 0;
 			if (comboShapes.Items.Count == 0)
 			{
-				foreach (ToolStripButton b in (Application.OpenForms[0] as MainCAD).toolStrip1.Items)
+				foreach (ToolStripButton b in (Application.OpenForms["MainCAD"] as MainCAD).toolStrip1.Items)
 				{
 					comboShapes.Items.Add(b);
 
-					checkBoxes.Add(new Checkbox());
-					(checkBoxes[checkBoxes.Count - 1] as Checkbox).Location = new Point(140, 16 + checkBoxes.Count * 20);
-					(checkBoxes[checkBoxes.Count - 1] as Checkbox).Name = "check" + b.Text;
-					(checkBoxes[checkBoxes.Count - 1] as Checkbox).Text = b.Text;
-					(checkBoxes[checkBoxes.Count - 1] as Checkbox).Size = new Size(100, 17);
-					Controls.Add(checkBoxes[checkBoxes.Count - 1] as Control);
+					/*++i;
+					Checkbox cb = new Checkbox();
+					cb.Location = new Point(10, 16 + i * 20);
+					cb.Name = "check" + b.Text;
+					cb.Text = b.Text;
+					cb.Size = new Size(30, 17);
+					cb.TopLevel = false;
+					groupBox1.Controls.Add(cb);*/
 				}
 			}
 		}
