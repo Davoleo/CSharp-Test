@@ -51,12 +51,17 @@
 			this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
 			this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.applyOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.otherToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.fillWPointsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pointsCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.totalAreaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.applyOptionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fromtxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fromBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.astxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.asBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.toolStrip1.SuspendLayout();
 			this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.SuspendLayout();
@@ -189,23 +194,28 @@
 			// 
 			// openToolStripMenuItem
 			// 
+			this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fromtxtToolStripMenuItem,
+            this.fromBinaryToolStripMenuItem});
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
 			this.openToolStripMenuItem.ShortcutKeyDisplayString = "CTRL + O";
 			this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.openToolStripMenuItem.Text = "Open";
-			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
 			// saveToolStripMenuItem
 			// 
+			this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.astxtToolStripMenuItem,
+            this.asBinaryToolStripMenuItem});
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.saveToolStripMenuItem.Text = "Save";
 			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			// 
 			// shapesToolStripMenuItem
@@ -283,9 +293,16 @@
 			// optionsToolStripMenuItem
 			// 
 			this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.optionsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
 			this.optionsToolStripMenuItem.Text = "Options...";
 			this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
+			// 
+			// applyOptionsToolStripMenuItem
+			// 
+			this.applyOptionsToolStripMenuItem.Name = "applyOptionsToolStripMenuItem";
+			this.applyOptionsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+			this.applyOptionsToolStripMenuItem.Text = "Apply Options";
+			this.applyOptionsToolStripMenuItem.Click += new System.EventHandler(this.applyOptionsToolStripMenuItem_Click);
 			// 
 			// otherToolStripMenuItem
 			// 
@@ -322,12 +339,30 @@
 			// 
 			this.openFileDialog1.FileName = "MiniCADFile ";
 			// 
-			// applyOptionsToolStripMenuItem
+			// fromtxtToolStripMenuItem
 			// 
-			this.applyOptionsToolStripMenuItem.Name = "applyOptionsToolStripMenuItem";
-			this.applyOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.applyOptionsToolStripMenuItem.Text = "Apply Options";
-			this.applyOptionsToolStripMenuItem.Click += new System.EventHandler(this.applyOptionsToolStripMenuItem_Click);
+			this.fromtxtToolStripMenuItem.Name = "fromtxtToolStripMenuItem";
+			this.fromtxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fromtxtToolStripMenuItem.Text = "From .txt";
+			// 
+			// fromBinaryToolStripMenuItem
+			// 
+			this.fromBinaryToolStripMenuItem.Name = "fromBinaryToolStripMenuItem";
+			this.fromBinaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fromBinaryToolStripMenuItem.Text = "From binary";
+			// 
+			// astxtToolStripMenuItem
+			// 
+			this.astxtToolStripMenuItem.Name = "astxtToolStripMenuItem";
+			this.astxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.astxtToolStripMenuItem.Text = "As .txt";
+			this.astxtToolStripMenuItem.Click += new System.EventHandler(this.astxtToolStripMenuItem_Click);
+			// 
+			// asBinaryToolStripMenuItem
+			// 
+			this.asBinaryToolStripMenuItem.Name = "asBinaryToolStripMenuItem";
+			this.asBinaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.asBinaryToolStripMenuItem.Text = "As binary";
 			// 
 			// MainCAD
 			// 
@@ -390,5 +425,10 @@
 		private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem applyOptionsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fromtxtToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fromBinaryToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem astxtToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem asBinaryToolStripMenuItem;
+		private System.Windows.Forms.SaveFileDialog saveFileDialog1;
 	}
 }

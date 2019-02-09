@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -224,14 +225,6 @@ namespace CSharp_Test.CAD
 			MessageBox.Show("Total Area of the shapes on the shapeList: " + totalArea, "Area", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
-		private void openToolStripMenuItem_Click(object sender, EventArgs e)
-		{
-			if (openFileDialog1.ShowDialog() == DialogResult.OK)
-			{
-				
-			}
-		}
-
 		private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (optionsForm == null)
@@ -246,6 +239,18 @@ namespace CSharp_Test.CAD
 		private void applyOptionsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void astxtToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				StreamWriter dataFile = new StreamWriter(saveFileDialog1.FileName);
+				dataFile.WriteLine("I'm the first line of the file!");
+				dataFile.WriteLine("I'm the second line of the file, and I'm way longer than the first one!");
+				dataFile.WriteLine("I'm the 3rd, the shortest!");
+				dataFile.Close();
+			}
 		}
 
 		private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
