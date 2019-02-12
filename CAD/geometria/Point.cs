@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -50,6 +51,13 @@ namespace CSharp_Test.CAD.geometria
         public override float GetArea()
         {
             return 0;
+        }
+
+        public override void Save(StreamWriter f)
+        {
+			  base.Save(f);
+			  f.WriteLine(x);
+			  f.WriteLine(y);
         }
 
         public static void PointsCount()

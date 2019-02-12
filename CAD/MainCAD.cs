@@ -24,7 +24,7 @@ namespace CSharp_Test.CAD
 
         public enum Shapes {Point, Line, Rectangle, Square, Ellipsis}
 
-		  ArrayList shapeList = new ArrayList();
+		  private ArrayList shapeList = new ArrayList();
 
 		  private Options optionsForm;
         private Shapes chosenShape = Shapes.Point;
@@ -243,13 +243,74 @@ namespace CSharp_Test.CAD
 
 		private void astxtToolStripMenuItem_Click(object sender, EventArgs e)
 		{
+
 			if (saveFileDialog1.ShowDialog() == DialogResult.OK)
 			{
-				StreamWriter dataFile = new StreamWriter(saveFileDialog1.FileName);
-				dataFile.WriteLine("I'm the first line of the file!");
-				dataFile.WriteLine("I'm the second line of the file, and I'm way longer than the first one!");
-				dataFile.WriteLine("I'm the 3rd, the shortest!");
-				dataFile.Close();
+				StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
+
+				foreach (Shape s in shapeList)
+					s.Save(writer);
+
+				writer.Close();
+			}
+		}
+
+		private void fromtxtToolStripMenuItem_Click(object sender, EventArgs e)
+		{ 
+			if (openFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				shapeList.Clear();
+				StreamReader reader = new StreamReader(openFileDialog1.FileName);
+
+				while (!reader.EndOfStream)	
+				{
+					string shapeType = reader.ReadLine();
+					Color color = Color.FromArgb(Convert.ToInt32(reader.ReadLine()));
+
+					int x1, y1, x2, y2;
+					x1 = Convert.ToInt32(reader.ReadLine());
+					y1 = Convert.ToInt32(reader.ReadLine());
+
+					switch (shapeType)
+					{
+						case "CSharp_Test.CAD.geometria.Point":
+							shapeList.Add(new Point(x1, y1, color));
+							break;
+
+						case "CSharp_Test.CAD.geometria.Line":
+							x2 = Convert.ToInt32(reader.ReadLine());
+							y2 = Convert.ToInt32(reader.ReadLine());
+
+							shapeList.Add(new Line(new Point(x1, y1), new Point(x2, y2), color));
+							break;
+
+						case "CSharp_Test.CAD.geometria.Rectangle":
+							x2 = Convert.ToInt32(reader.ReadLine());
+							y2 = Convert.ToInt32(reader.ReadLine());
+
+							shapeList.Add(new Rectangle(color, new Point(x1, y1), x2, y2));
+							break;
+						case "CSharp_Test.CAD.geometria.Square":
+							x2 = Convert.ToInt32(reader.ReadLine());
+							y2 = Convert.ToInt32(reader.ReadLine());
+
+							shapeList.Add(new Square(color, new Point(x1, y1), x2));
+							break;
+						case "CSharp_Test.CAD.geometria.Ellipsis":
+							x2 = Convert.ToInt32(reader.ReadLine());
+							y2 = Convert.ToInt32(reader.ReadLine());
+
+							shapeList.Add(new Ellipsis(color, new Point(x1, y1), x2, y2));
+							break;
+						default:
+							MessageBox.Show("The opened file couldn't be read", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+							return;
+					}
+
+					(shapeList[shapeList.Count - 1] as Shape).Draw(toolStripContainer1.ContentPanel.CreateGraphics());
+				}
+
+				reader.Close();
 			}
 		}
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,5 +33,14 @@ namespace CSharp_Test.CAD.geometria
         {
             return 0;
         }
+
+        public override void Save(StreamWriter f)
+        {
+	        base.Save(f);
+			  f.WriteLine(start.X);
+			  f.WriteLine(start.Y);
+			  f.WriteLine(end.X);
+			  f.WriteLine(end.Y);
+		}
     }
 }

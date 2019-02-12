@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,15 @@ namespace CSharp_Test.CAD.geometria
 		public override void Draw(Graphics @where)
 		{
 			where.DrawRectangle(pen, upSx.X, upSx.Y, b, h);
+		}
+
+		public override void Save(StreamWriter f)
+		{
+			base.Save(f);
+			f.WriteLine(upSx.X);
+			f.WriteLine(upSx.Y);
+			f.WriteLine(b);
+			f.WriteLine(h);
 		}
 	}
 }

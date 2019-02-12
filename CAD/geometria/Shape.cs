@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,12 @@ namespace CSharp_Test.CAD.geometria
         public abstract float GetArea();
 
         public abstract float GetPerimeter();
+
+        public virtual void Save(StreamWriter f)
+        {
+	        f.WriteLine(this.GetType().ToString());
+	        f.WriteLine(color.ToArgb());
+			}
 
     }
 }

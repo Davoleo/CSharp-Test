@@ -40,7 +40,11 @@
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fromtxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.fromBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.astxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.asBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.shapesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pointToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,10 +61,6 @@
 			this.pointsCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.totalAreaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.fromtxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.fromBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.astxtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.asBinaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
 			this.toolStrip1.SuspendLayout();
 			this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
@@ -203,6 +203,19 @@
 			this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.openToolStripMenuItem.Text = "Open";
 			// 
+			// fromtxtToolStripMenuItem
+			// 
+			this.fromtxtToolStripMenuItem.Name = "fromtxtToolStripMenuItem";
+			this.fromtxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fromtxtToolStripMenuItem.Text = "From .txt";
+			this.fromtxtToolStripMenuItem.Click += new System.EventHandler(this.fromtxtToolStripMenuItem_Click);
+			// 
+			// fromBinaryToolStripMenuItem
+			// 
+			this.fromBinaryToolStripMenuItem.Name = "fromBinaryToolStripMenuItem";
+			this.fromBinaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fromBinaryToolStripMenuItem.Text = "From binary";
+			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -211,6 +224,19 @@
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
 			this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.saveToolStripMenuItem.Text = "Save";
+			// 
+			// astxtToolStripMenuItem
+			// 
+			this.astxtToolStripMenuItem.Name = "astxtToolStripMenuItem";
+			this.astxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.astxtToolStripMenuItem.Text = "As .txt";
+			this.astxtToolStripMenuItem.Click += new System.EventHandler(this.astxtToolStripMenuItem_Click);
+			// 
+			// asBinaryToolStripMenuItem
+			// 
+			this.asBinaryToolStripMenuItem.Name = "asBinaryToolStripMenuItem";
+			this.asBinaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.asBinaryToolStripMenuItem.Text = "As binary";
 			// 
 			// exitToolStripMenuItem
 			// 
@@ -338,31 +364,6 @@
 			// openFileDialog1
 			// 
 			this.openFileDialog1.FileName = "MiniCADFile ";
-			// 
-			// fromtxtToolStripMenuItem
-			// 
-			this.fromtxtToolStripMenuItem.Name = "fromtxtToolStripMenuItem";
-			this.fromtxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.fromtxtToolStripMenuItem.Text = "From .txt";
-			// 
-			// fromBinaryToolStripMenuItem
-			// 
-			this.fromBinaryToolStripMenuItem.Name = "fromBinaryToolStripMenuItem";
-			this.fromBinaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.fromBinaryToolStripMenuItem.Text = "From binary";
-			// 
-			// astxtToolStripMenuItem
-			// 
-			this.astxtToolStripMenuItem.Name = "astxtToolStripMenuItem";
-			this.astxtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.astxtToolStripMenuItem.Text = "As .txt";
-			this.astxtToolStripMenuItem.Click += new System.EventHandler(this.astxtToolStripMenuItem_Click);
-			// 
-			// asBinaryToolStripMenuItem
-			// 
-			this.asBinaryToolStripMenuItem.Name = "asBinaryToolStripMenuItem";
-			this.asBinaryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.asBinaryToolStripMenuItem.Text = "As binary";
 			// 
 			// MainCAD
 			// 
