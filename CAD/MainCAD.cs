@@ -314,6 +314,74 @@ namespace CSharp_Test.CAD
 			}
 		}
 
+		private void importFromPNGToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			//file to read
+			FileStream binaryFile = null;
+			//reads the file in a buffered way
+			BinaryReader reader = null;
+			//buffer for the reader
+			byte[] buffer = new byte[1024];
+
+			if (openFileDialog1.ShowDialog() == DialogResult.OK)
+			{
+				try
+				{
+					//tries to open the file
+					binaryFile = new FileStream(openFileDialog1.FileName, FileMode.Open);
+					// links the file to a binary reader
+					reader = new BinaryReader(binaryFile);
+					//PNG heading  bytes
+					byte[] pngHeading = {137, 80, 78, 71, 13, 10, 26, 10, 0};
+
+					try
+					{
+						//buffer for the first 8 numbers
+						byte[] firstBytes = new byte[8];
+
+						//reads 8 bytes from the file
+						int readChars = reader.Read(firstBytes, 0, 8);
+
+						bool supported = true;
+						for (int i = 0; i < 7; i++)
+						{
+							if (firstBytes[i] != pngHeading[i])
+							{
+								supported = false;
+								break;
+							}
+
+							if (supported)
+								MessageBox.Show("File has been read succesfully");
+
+							int count = 8;
+
+							//NO file.Peek per i file binari
+							while ((readChars = reader.Read(buffer, 0, 1024)) > 0)
+							{
+								count += readChars;
+
+								if (count >= int.MaxValue)
+									MessageBox.Show("image is too big");
+							}
+							MessageBox.Show("File Dimension = " +  count.ToString())
+						}
+					}
+					catch (Exception exception)
+					{
+						MessageBox.Show("Format Error!");
+					}
+				}
+				catch (Exception exception)
+				{
+					MessageBox.Show("The file couldn't be opened successfully");
+				}
+
+				if (binaryFile != null)
+					binaryFile.Close();
+			}
+		}
+
 		private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Point p;
