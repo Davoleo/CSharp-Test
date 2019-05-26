@@ -364,7 +364,7 @@ namespace CSharp_Test.CAD
 								if (count >= int.MaxValue)
 									MessageBox.Show("image is too big");
 							}
-							MessageBox.Show("File Dimension = " +  count.ToString())
+                            MessageBox.Show("File Dimension = " + count.ToString());
 						}
 					}
 					catch (Exception exception)
@@ -382,7 +382,13 @@ namespace CSharp_Test.CAD
 			}
 		}
 
-		private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ClearCanvasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shapeList.Clear();
+            Refresh();
+        }
+
+        private void fillWPointsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			Point p;
 			Random r = new Random();
