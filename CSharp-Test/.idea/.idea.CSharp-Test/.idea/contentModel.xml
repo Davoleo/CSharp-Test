@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Davoleo\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Davoleo\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_CSharp-Test.859687449.00" t="ExcludeRecursive" />
+    <e p="D:\Everything\Coding\C#\Projects\CSharp-Test" t="IncludeRecursive">
+      <e p="App.config" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Checkbox.cs" t="Include" />
+      <e p="Checkbox.Designer.cs" t="Include" />
+      <e p="Checkbox.resx" t="Include" />
+      <e p="CSharp-Test.csproj" t="IncludeRecursive" />
+      <e p="CSharp-Test.sln" t="IncludeFlat" />
+      <e p="Date.cs" t="Include" />
+      <e p="FormSomma.cs" t="Include" />
+      <e p="FormSomma.Designer.cs" t="Include" />
+      <e p="FormSomma.resx" t="Include" />
+      <e p="Main.cs" t="Include" />
+      <e p="Main.Designer.cs" t="Include" />
+      <e p="Main.resx" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+        <e p="Resources.Designer.cs" t="Include" />
+        <e p="Resources.resx" t="Include" />
+        <e p="Settings.Designer.cs" t="Include" />
+        <e p="Settings.settings" t="Include" />
+      </e>
+      <e p="Resources" t="Include">
+        <e p="DAB.png" t="Include" />
+        <e p="fideduo05.jpg" t="Include" />
+      </e>
+    </e>
+  </component>
+</project>
