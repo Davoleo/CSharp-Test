@@ -86,6 +86,52 @@ namespace Console_Test
             Random rand = new Random();
             Console.WriteLine("Random number between 1 and 10: " + rand.Next(1, 11));
 
+            //Relational Operators: > < >= <= == !=
+            //Logical Operators: && (AND) || (OR) ^ (XOR) ! (NOT)
+
+            int age = rand.Next(1, 101);
+            Console.WriteLine(age);
+
+            //IF statements
+            if (age >= 5 && age <= 7)
+            {
+                Console.WriteLine("Go to Elementary School");
+            } else if (age > 7 && age < 13)
+            {
+                Console.WriteLine("Go to Middle School");
+            } else
+            {
+                Console.WriteLine("Go to High School");
+            }
+
+            if (age < 14 || age > 67)
+            {
+                Console.WriteLine("You Shouldn't Work");
+            }
+
+            Console.WriteLine("! true: " + !true);
+
+            //Ternary - Condition ? ifTrue : ifFalse
+            bool canDrive = age >= 18 ? true : false;
+
+            switch (age)
+            {
+                case 0:
+                    Console.WriteLine("Infant");
+                    break;
+                case 1:
+                case 2:
+                    Console.WriteLine("Toddler");
+                    //Goto jumps to the code block you specify (It's gonna kick you out of the switch statement)
+                    goto Checkpoint1;
+                default:
+                    Console.WriteLine("Child");
+                    break;
+            }
+
+        Checkpoint1:
+            Console.WriteLine("I'm printed from outside the while loop");
+
 
         }
     }
