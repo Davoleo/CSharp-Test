@@ -130,9 +130,62 @@ namespace Console_Test
             }
 
         Checkpoint1:
-            Console.WriteLine("I'm printed from outside the while loop");
+            Console.WriteLine("I'm printed from outside the switch statement");
 
+            Console.WriteLine("-------------------------------------------------------");
 
+            int j = 0;
+            
+            while(j < 10)
+            {
+                if (j == 7)
+                {
+                    j++;
+                    continue;
+                }
+                //^^^ Jump back to the while header 
+
+                if (j == 9)
+                    break;
+                //// ^^ Jump out of the loop
+
+                if (j % 2 > 0)
+                    Console.WriteLine(j);
+
+                j++;
+            }
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //DO While: The body of do is executed at least one time
+            string guess;
+
+            do
+            {
+                Console.WriteLine("Guess a number");
+                guess = Console.ReadLine();
+            } while (!guess.Equals("15"));
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //FOR Loop: All the conditional and counter stuff is in the heading
+            for (int k = 0; k < 10; k++)
+            {
+                if(k % 2 != 0)
+                {
+                    Console.WriteLine(k);
+                }
+            }
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //FOREACH: Used to iterate over list, arrays, maps and collections
+            string randString = "Example Random String";
+
+            foreach (char c in randString)
+            {
+                Console.WriteLine(c);
+            }
         }
     }
 }
