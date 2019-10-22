@@ -186,6 +186,48 @@ namespace Console_Test
             {
                 Console.WriteLine(c);
             }
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Strings
+            //Escape Sequences: Allow you to enter special chars in strings
+            //      \' \" \\ \b \n \t
+            string sampleString = "Some random words";
+
+            //Prints wether a string is empty or null
+            Console.WriteLine("Is Empty: " + String.IsNullOrEmpty(sampleString));
+            //Prints wether a string is null or filled with white space
+            Console.WriteLine("Is Empty: " + String.IsNullOrWhiteSpace(sampleString));
+
+            Console.WriteLine("String Length: " + sampleString.Length);
+            //Returns the position of a certain string/char inside of another string | returns -1 if it doesn't find it 
+            Console.WriteLine("Index of 'random': " + sampleString.IndexOf("random"));
+            //Returns a substring of the parent string when given the index of the first letter and the length of the word
+
+            Console.WriteLine("2nd word: " + sampleString.Substring(5, 6));
+            //Returns true if the parent string is equals to the argument string
+            Console.WriteLine("Strings Equal: " + sampleString.Equals(randString));
+            //Returns true if the String starts with the argument string
+
+            Console.WriteLine("Starts with \"Example Random\": " + randString.StartsWith("Example Random"));
+            //Returns true if the String ends with the argument string
+            Console.WriteLine("Ends with \"Example String\": " + randString.EndsWith("Example String"));
+
+            //Removes white space at the beginning or at the end of a string
+            sampleString = sampleString.Trim(); //TrimEnd TrimStart
+
+            //Replaces a substring of the parent string with another string
+            sampleString = sampleString.Replace("words", "characters");
+
+            //Removes a substring of length equals to the second parameter starting from the passed index (first parameter)
+            sampleString = sampleString.Remove(0, 4);
+
+            //Array of strings
+            string[] words = new string[6] {"I", "Suck", "At", "Drawing", "Textures", ":("};
+            //Join a string array into one single string
+            Console.WriteLine("Joined String Array: " + String.Join(" ", words));
+
+
         }
     }
 }
