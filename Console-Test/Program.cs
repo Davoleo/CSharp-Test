@@ -233,7 +233,7 @@ namespace Console_Test
             string formatted = String.Format("{0:c} {1:00.00} {2:#.00} {3:0,0}", 4.99, 15.567, .56, 1000);
             Console.WriteLine("Formatted Strings examples: " + formatted);
 
-                        Console.WriteLine("-------------------------------------------------------");
+            Console.WriteLine("-------------------------------------------------------");
 
             //String Builder
             //Used when you want to edit a string without creating a new one
@@ -247,8 +247,54 @@ namespace Console_Test
             sb.Replace("e", "E");
             //Removes chars from index 5 (included) to index 7 (excluded)
             sb.Remove(5, 7);
-
+            //Converts the StringBuilder to a String and writes it on the console
             Console.WriteLine(sb.ToString());
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Arrays
+            int[] randArray;
+            int[] randFixedArray = new int[5];
+            int[] literalArray = {1, 2, 3, 4, 5};
+
+            //Returns the number of items in the array
+            Console.WriteLine("Array Length: " + literalArray.Length);
+            //Returns the first item of an array
+            Console.WriteLine("First Item: " + literalArray[0]);
+
+            //Loop through arrays
+
+            //Classic For loop with array length
+            for (int k = 0; k < literalArray.Length; k++)
+            {
+                Console.WriteLine("{0} : {1}", k, literalArray[k]);
+            }
+            //For Each
+            foreach (int num in literalArray)
+            {
+                Console.WriteLine(num);
+            }
+
+            //Returns the index of a specific array element
+            Console.WriteLine("Index of 3: " + Array.IndexOf(literalArray, 3));
+
+            string[] names = {"Shana", "Alastor", "Wilhelmina", "Decarabia", "Fecor", "Hecate", "Sydonnay"};
+            //Joins all the items of an array dividing them with a custom separator
+            string nameCollectionString = string.Join(", ", names);
+
+            names = nameCollectionString.Split(',');
+
+            //Multidimensional Arrays
+            //Two dimensional empty array of length 5*3
+            int[,] multArray = new int[5, 3];
+
+            //Literal Init
+            int[,] multArray2 = {{0, 1}, {2, 3}, {4, 5}};
+
+            foreach (int num in multArray2)
+            {
+                Console.WriteLine(num);
+            }
 
 
 
