@@ -227,6 +227,30 @@ namespace Console_Test
             //Join a string array into one single string
             Console.WriteLine("Joined String Array: " + String.Join(" ", words));
 
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Formatting Strings
+            string formatted = String.Format("{0:c} {1:00.00} {2:#.00} {3:0,0}", 4.99, 15.567, .56, 1000);
+            Console.WriteLine("Formatted Strings examples: " + formatted);
+
+                        Console.WriteLine("-------------------------------------------------------");
+
+            //String Builder
+            //Used when you want to edit a string without creating a new one
+            StringBuilder sb = new StringBuilder();
+            //Append new strings - (AppendLine is the version that appends a \n at the end automatically)
+            sb.Append("This is the first Sentence.");
+            sb.AppendFormat("My Nick is {0} and I am a {1} developer", "Davoleo", "C#");
+            //Empties the whole StringBuilder Buffer
+            //sb.Clear();
+            //Replaces a string with another one in all the occurrences in the StringBuilder
+            sb.Replace("e", "E");
+            //Removes chars from index 5 (included) to index 7 (excluded)
+            sb.Remove(5, 7);
+
+            Console.WriteLine(sb.ToString());
+
+
 
         }
     }
