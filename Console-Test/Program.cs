@@ -296,6 +296,55 @@ namespace Console_Test
                 Console.WriteLine(num);
             }
 
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Lists: Dynamic Arrays
+            List<int> numList = new List<int>();
+
+            //Adds a Single item to the list
+            numList.Add(5);
+            numList.Add(15);
+            numList.Add(25);
+
+            //Adds a range of items to the list (in some kind of collection form)
+            int[] numArray = {1, 2, 3, 4};
+            numList.AddRange(numArray);
+
+            //Removes All the items in the list
+            //numList.Clear();
+
+            //Init a list with an array (aka create a list from an array)
+            List<int> numList2 = new List<int>(numArray);
+
+            //Insert an item in a specific index
+            numList.Insert(1, 10);
+
+            //Removes the first occurance of the argument in the list, from the list
+            numList.Remove(5);
+            //Removes the item at the index 2
+            numList.RemoveAt(2);
+
+            for (var l = 0; l < numList.Count; l++)
+            {
+                Console.WriteLine(numList[l]);
+            }
+
+            //Returns the index of the first occurance of the passed item (returns -1 if it doesn't find any)
+            Console.WriteLine("4 is in index " + numList2.IndexOf(4));
+
+            Console.WriteLine("is 5 in the list " + numList.Contains(5));
+
+            List<string> stringList = new List<string>(new string[] {"Davoleo", "Matpac", "Pierknight"});
+            //case insensitive String comparison
+            Console.WriteLine("Davoleo in list " + stringList.Contains("davoleo", StringComparer.OrdinalIgnoreCase));
+
+            //Sorts the list alphabetically or numerically depending on the contents
+            numList.Sort();
+
+
+
+
+
 
 
         }
