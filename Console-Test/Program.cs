@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -341,11 +342,34 @@ namespace Console_Test
             //Sorts the list alphabetically or numerically depending on the contents
             numList.Sort();
 
-
-
-
-
-
+            Console.WriteLine("-------------------------------------------------------");
+            
+            //Exception Handling
+            //Try and Catch Structure
+            try
+            {
+                Console.Write("Divide 10 by ");
+                int num = int.Parse(Console.ReadLine());
+                Console.WriteLine("10/{0} = {1}", num, 10 / num);
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine("Can't divide by 0");
+                //Prints the name of the exception
+                Console.WriteLine(e.GetType().Name);
+                //Prints a small description of the exception
+                Console.WriteLine(e.Message);
+                //Throws the same exception again
+                //throw e;
+                //Throws another new Exception
+                throw new InvalidOperationException("Operation Failed", e);
+            }
+            catch (Exception e)
+            {
+                //This Catches all the exceptions
+                Console.WriteLine(e.GetType().Name);
+                Console.WriteLine(e.Message);
+            }
 
         }
     }
