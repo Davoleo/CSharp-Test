@@ -371,6 +371,46 @@ namespace Console_Test
                 Console.WriteLine(e.Message);
             }
 
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Classes and Objects
+        }
+
+        class Animal
+        {
+            //Access Limits
+            //public - protected - private
+            // {get; set;} automatically defines getters and setters for the field
+            private double Height { get; set; }
+            private double Weight { get; set; }
+            private string Sound { get; set; }
+            private string name;
+
+            //custom getters/setters (properties)
+            public string Name
+            {
+                get { return name; }
+                set { this.name = value; }
+            }
+
+            //Constructors
+            //The default constructor has no parameters
+            public Animal()
+            {
+                this.Height = 0;
+                this.Weight = 0;
+                this.Sound = "NoSound";
+                this.Name = "NoName";
+            }
+
+            public Animal(double height, double weight, string sound, string name)
+            {
+                this.Height = height;
+                this.Weight = weight;
+                this.Sound = sound;
+                this.Name = name;
+            }
+
         }
     }
 }
