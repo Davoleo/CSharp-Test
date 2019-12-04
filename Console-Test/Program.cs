@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Console_Test
@@ -374,6 +375,11 @@ namespace Console_Test
             Console.WriteLine("-------------------------------------------------------");
 
             //Classes and Objects
+            Animal botolo = new Animal(0.5, 6, "Meeer", "Botolo");
+
+            Console.WriteLine("{0} says {1}", botolo.Name, botolo.Sound);
+            Console.WriteLine(botolo.ToString());
+            Console.WriteLine(Animal.GetCount());
         }
 
         class Animal
@@ -381,9 +387,9 @@ namespace Console_Test
             //Access Limits
             //public - protected - private
             // {get; set;} automatically defines getters and setters for the field
-            private double Height { get; set; }
-            private double Weight { get; set; }
-            private string Sound { get; set; }
+            public double Height { get; set; }
+            public double Weight { get; set; }
+            public string Sound { get; set; }
             private string name;
 
             //custom getters/setters (properties)
@@ -401,6 +407,7 @@ namespace Console_Test
                 this.Weight = 0;
                 this.Sound = "NoSound";
                 this.Name = "NoName";
+                count++;
             }
 
             public Animal(double height, double weight, string sound, string name)
@@ -409,6 +416,19 @@ namespace Console_Test
                 this.Weight = weight;
                 this.Sound = sound;
                 this.Name = name;
+                count++;
+            }
+
+            //Static fields and methods - common between instances of this class
+            private static int count = 0;
+            public static int GetCount() {
+                return count;
+            }
+
+            //Overrides a method in the superclass (needs the override keyword)
+            public override string ToString()
+            {
+                return String.Format("{0} is {1} meters tall, weighs {2} kg and makes this sound: {3}", name, Height, Weight, Sound);
             }
 
         }
