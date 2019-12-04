@@ -380,6 +380,15 @@ namespace Console_Test
             Console.WriteLine("{0} says {1}", botolo.Name, botolo.Sound);
             Console.WriteLine(botolo.ToString());
             Console.WriteLine(Animal.GetCount());
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Method Overloading test
+            //This Calls the int version
+            Console.WriteLine(GetSum(1, 25));
+            //This Calls the double version
+            //Passing parameters in another order
+            Console.WriteLine(GetSum(num2: 7.64, num1: 9.24));
         }
 
         class Animal
@@ -428,9 +437,20 @@ namespace Console_Test
             //Overrides a method in the superclass (needs the override keyword)
             public override string ToString()
             {
-                return String.Format("{0} is {1} meters tall, weighs {2} kg and makes this sound: {3}", name, Height, Weight, Sound);
+                return String.Format("{0} is {1} meters tall, weighs {2} kg and makes this sound: {3}", name, Height,
+                    Weight, Sound);
             }
+        }
 
+        //Method Overloading
+        //Same Method name - Different Method Signature (multiple versions of the same method)
+        public static int GetSum(int num1 = 1, int num2 = 1)
+        {
+            return num1 + num2;
+        }
+        public static double GetSum(double num1 = 1, double num2 = 1)
+        {
+            return num1 + num2;
         }
     }
 }
