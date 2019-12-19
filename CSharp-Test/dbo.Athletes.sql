@@ -11,3 +11,9 @@ GO
 
 
 CREATE INDEX [IX_Table_Column] ON [dbo].[Athletes] ([keyCountry])
+
+-- Calling Procedures capturing the return int
+DECLARE @re INT = 0;
+
+EXEC @re = listAthletes;
+SELECT @re;
