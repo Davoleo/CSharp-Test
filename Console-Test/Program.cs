@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.SqlServer.Server;
 
 namespace Console_Test
 {
@@ -385,10 +386,24 @@ namespace Console_Test
 
             //Method Overloading test
             //This Calls the int version
-            Console.WriteLine(GetSum(1, 25));
+            Console.WriteLine("1 + 25 = " + GetSum(1, 25));
             //This Calls the double version
             //Passing parameters in another order
-            Console.WriteLine(GetSum(num2: 7.64, num1: 9.24));
+            Console.WriteLine("7.64 + 9.24 = " + GetSum(num2: 7.64, num1: 9.24));
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Object Initializer - Assigning values to the fields manually
+            Animal epicAnimal = new Animal()
+            {
+                Name = "Grover",
+                Height = 13,
+                Weight = 11,
+                Sound = "GRRR"
+            };
+            Console.WriteLine(epicAnimal.ToString());
+
+
         }
 
         class Animal
@@ -448,9 +463,34 @@ namespace Console_Test
         {
             return num1 + num2;
         }
+
         public static double GetSum(double num1 = 1, double num2 = 1)
         {
             return num1 + num2;
         }
+
+        //Subclass - C#: Inheritance 
+        class Cat : Animal
+        {
+            private string favFood { get; set; }
+
+            public Cat() : base()
+            {
+                this.favFood = "none";
+            }
+
+            public Cat(double height, double weight, string name, string sound, string favFood) : 
+                base(height, weight, sound, name)
+            {
+                this.favFood = favFood;
+            }
+
+            public override string ToString()
+            {
+                return String.Format("{0} is {1} tall, weighs {2} and likes to say {3} and eats {4}", Name, Height, Weight, Sound, favFood);
+            }
+        }
+
+
     }
 }
