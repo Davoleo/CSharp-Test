@@ -491,6 +491,59 @@ namespace Console_Test
             }
         }
 
+        //Polymorphism ----------------------------------------------------------
+        abstract class Shape
+        {
+            public abstract double Area();
 
+            public void LogShapeInfo()
+            {
+                Console.WriteLine(this.ToString());
+            }
+        }
+
+        public interface ICountouredShape
+        {
+            double Perimter();
+        }
+
+        class Rectangle : Shape, ICountouredShape
+        {
+            private double width;
+            private double height;
+
+            public Rectangle(double width, double height)
+            {
+                this.width = width;
+                this.height = height;
+            }
+
+            public override double Area()
+            {
+                return width * height;
+            }
+
+            public double Perimter()
+            {
+                return (width + height) * 2;
+            }
+        }
+
+        class Triangle : Shape
+        {
+            private double _base;
+            private double height;
+
+            public Triangle(double _base, double height)
+            {
+                this._base = _base;
+                this.height = height;
+            }
+
+            public override double Area()
+            {
+                return (_base * height) / 2;
+            }
+        }
     }
 }
