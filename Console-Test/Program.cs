@@ -403,7 +403,17 @@ namespace Console_Test
             };
             Console.WriteLine(epicAnimal.ToString());
 
+            Console.WriteLine("-------------------------------------------------------");
+            //Polymorphism 
+            Shape rect = new Rectangle(5, 8);
+            Shape tri = new Triangle(8, 3);
 
+            Console.WriteLine("Rect Area: " + rect.Area());
+            Console.WriteLine("Tri Area: " + tri.Area());
+
+            //Operator Overloading for objects
+            Rectangle combinedRectangle = new Rectangle(6, 10) + (Rectangle) rect;
+            Console.WriteLine("combinedRectangle Area: " + combinedRectangle.Area());
         }
 
         class Animal
@@ -504,7 +514,7 @@ namespace Console_Test
 
         public interface ICountouredShape
         {
-            double Perimter();
+            double Perimeter();
         }
 
         class Rectangle : Shape, ICountouredShape
@@ -523,9 +533,17 @@ namespace Console_Test
                 return width * height;
             }
 
-            public double Perimter()
+            public double Perimeter()
             {
                 return (width + height) * 2;
+            }
+
+            //------------------------------ Operator Overloading ------------------------
+            public static Rectangle operator +(Rectangle rect1, Rectangle rect2)
+            {
+                double newWidth = rect1.width + rect2.width;
+                double newHeight = rect1.height + rect2.height;
+                return new Rectangle(newWidth, newHeight);
             }
         }
 
