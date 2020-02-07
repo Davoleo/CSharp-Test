@@ -421,6 +421,32 @@ namespace Console_Test
             SimpleMapEntry<int, string> davPass = new SimpleMapEntry<int, string>(333, "Davoleo");
 
             davPass.ShowData();
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            Temperature waveTemp = Temperature.WARM;
+
+            switch (waveTemp)
+            {
+                case Temperature.FREEZE:
+                    Console.WriteLine("Freezing Temperature"); 
+                    break;
+                case Temperature.LOW:
+                    Console.WriteLine("Low Temperature");
+                    break;
+                case Temperature.WARM:
+                    Console.WriteLine("Warm Temperature");
+                    break;
+                case Temperature.HOT: 
+                    Console.WriteLine("Hot Temperature");
+                    break;
+                case Temperature.SEARING:
+                    Console.WriteLine("EPIC Temperature, everything Sublimates");
+                    break;
+                default:
+                    Console.WriteLine("Invalid Temperature");
+                    break;
+            }
         }
 
         class Animal
@@ -587,6 +613,16 @@ namespace Console_Test
             {
                 Console.WriteLine("{0} is {1}", this.key, this.value);
             }
+        }
+
+        //Example Enum
+        enum Temperature
+        {
+            FREEZE,
+            LOW,
+            WARM,
+            HOT,
+            SEARING
         }
     }
 }
