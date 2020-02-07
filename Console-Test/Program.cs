@@ -414,6 +414,13 @@ namespace Console_Test
             //Operator Overloading for objects
             Rectangle combinedRectangle = new Rectangle(6, 10) + (Rectangle) rect;
             Console.WriteLine("combinedRectangle Area: " + combinedRectangle.Area());
+
+            Console.WriteLine("-------------------------------------------------------");
+            
+            //Generics - Classes that can be used with any kind of object
+            SimpleMapEntry<int, string> davPass = new SimpleMapEntry<int, string>(333, "Davoleo");
+
+            davPass.ShowData();
         }
 
         class Animal
@@ -561,6 +568,24 @@ namespace Console_Test
             public override double Area()
             {
                 return (_base * height) / 2;
+            }
+        }
+
+        //GENERICS
+        class SimpleMapEntry<TK, TV>
+        {
+            public TK key { get; set; }
+            public TV value { get; set; }
+
+            public SimpleMapEntry(TK key, TV value)
+            {
+                this.key = key;
+                this.value = value;
+            }
+
+            public void ShowData()
+            {
+                Console.WriteLine("{0} is {1}", this.key, this.value);
             }
         }
     }
