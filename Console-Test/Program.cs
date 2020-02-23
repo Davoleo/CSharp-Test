@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -455,6 +456,30 @@ namespace Console_Test
             davoleo.createCustomer("Davoleo", 55.80, 111);
             davoleo.printInfo();
 
+            Console.WriteLine("-------------------------------------------------------");
+            //DELEGATES - Passing methods to other methods as parameters
+
+            //Anonymous method of type EvaluateExpression
+            EvaluateExpression sum = delegate(double n1, double n2) { return n1 + n2; };
+            EvaluateExpression multiplication = delegate(double n1, double n2) { return n1 * n2; };
+
+            Console.WriteLine("5 + 10 = " + sum(5, 10));
+            Console.WriteLine("5 * 10 = " + multiplication(5, 10));
+
+            //Lamda expressions - Anonymous functions
+            Func<int, int, int> subtract = (x, y) => x - y;
+            Console.WriteLine("5 - 10 = " + subtract.Invoke(5, 10));
+
+            List<int> nums = new List<int>{3, 6, 9, 12, 15, 18, 21, 24, 27, 30};
+            List<int> oddNumbers = nums.Where((n) => n % 2 == 1).ToList();
+
+            foreach (var oddNumber in oddNumbers)
+            {
+                Console.Write(oddNumber + ", ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("-------------------------------------------------------");
+
         }
 
         class Animal
@@ -654,5 +679,8 @@ namespace Console_Test
                 Console.WriteLine("ID: " + id);
             }
         }
+
+        //Example Delegate
+        delegate double EvaluateExpression(double num1, double num2);
     }
 }
