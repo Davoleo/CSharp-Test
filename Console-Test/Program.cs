@@ -447,6 +447,14 @@ namespace Console_Test
                     Console.WriteLine("Invalid Temperature");
                     break;
             }
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //STRUCTS
+            Customer davoleo = new Customer();
+            davoleo.createCustomer("Davoleo", 55.80, 111);
+            davoleo.printInfo();
+
         }
 
         class Animal
@@ -623,6 +631,28 @@ namespace Console_Test
             WARM,
             HOT,
             SEARING
+        }
+
+        //Example Struct
+        struct Customer
+        {
+            private string name;
+            private double balance;
+            private int id;
+
+            public void createCustomer(string name, double balance, int id)
+            {
+                this.name = name;
+                this.balance = balance;
+                this.id = id;
+            }
+
+            public void printInfo()
+            {
+                Console.WriteLine("Name: " + name);
+                Console.WriteLine("Balance: " + balance);
+                Console.WriteLine("ID: " + id);
+            }
         }
     }
 }
