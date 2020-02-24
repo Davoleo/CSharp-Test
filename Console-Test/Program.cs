@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.AccessControl;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.SqlServer.Server;
 
 namespace Console_Test
 {
@@ -20,7 +16,6 @@ namespace Console_Test
              * Multiline
              * Comment
              */
-
 
             //Hello World
             Console.WriteLine("Hello World");
@@ -479,6 +474,26 @@ namespace Console_Test
             }
             Console.WriteLine();
             Console.WriteLine("-------------------------------------------------------");
+
+            //File I/O
+            string[] nicks = {"Davoleo", "Matpac", "Pierknight", "gesudio"};
+
+            using (StreamWriter writer = new StreamWriter("nicknames.txt"))
+            {
+                foreach (var nick in nicks)
+                {
+                    writer.WriteLine(nick);
+                }
+            }
+
+            using (StreamReader reader = new StreamReader("nicknames.txt"))
+            {
+                string user;
+                while ((user = reader.ReadLine()) != null)
+                {
+                    Console.WriteLine(user);
+                }
+            }
 
         }
 
