@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Specialized;
-using System.Security.AccessControl;
 
-namespace Console_Test
+namespace Console_Test.OOPTest
 {
 
     /// <summary>
@@ -12,17 +10,17 @@ namespace Console_Test
     class Warrior
     {
         //Name
-        public string Name { get; set; }
+        public string Name { get; }
         //Health
         public int Health { get; set; }
         //Max Attack
-        public int MaxAttack { get; set; }
+        public int MaxAttack { get; }
         //Max Block
-        public int MaxBlock { get; set; }
-
+        public int MaxBlock { get; }
+        //Random Object instance
         private Random random;
 
-        public Warrior(string name, int health, int maxAttack, int maxBlock)
+        public Warrior(string name = "Warrrior", int health = 100, int maxAttack = 2, int maxBlock = 2)
         {
             Name = name;
             Health = health;
