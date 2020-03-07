@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Console_Test.OOPTest;
+using Console_Test.Shapes;
 
 namespace Console_Test
 {
@@ -404,9 +405,22 @@ namespace Console_Test
             //Polymorphism 
             Shape rect = new Rectangle(5, 8);
             Shape tri = new Triangle(8, 3);
+            Shape circle = new Circle(5);
+
+            //Array of different kinds of shapes
+            Shape[] shapeArray = {rect, tri, circle};
+
+            foreach (var shape in shapeArray)
+            {
+                shape.LogShapeInfo();
+            }
+            Console.WriteLine("***");
 
             Console.WriteLine("Rect Area: " + rect.Area());
             Console.WriteLine("Tri Area: " + tri.Area());
+            Console.WriteLine("Circle Area: " + circle.Area());
+            Console.WriteLine("tri is a Triangle: " + (tri is Triangle));
+            Console.WriteLine("rect is a Rectangle: " + ((rect as Rectangle) != null));
 
             //Operator Overloading for objects
             Rectangle combinedRectangle = new Rectangle(6, 10) + (Rectangle) rect;
@@ -587,69 +601,6 @@ namespace Console_Test
             public override string ToString()
             {
                 return String.Format("{0} is {1} tall, weighs {2} and likes to say {3} and eats {4}", Name, Height, Weight, Sound, favFood);
-            }
-        }
-
-        //Polymorphism ----------------------------------------------------------
-        abstract class Shape
-        {
-            public abstract double Area();
-
-            public void LogShapeInfo()
-            {
-                Console.WriteLine(this.ToString());
-            }
-        }
-
-        public interface ICountouredShape
-        {
-            double Perimeter();
-        }
-
-        class Rectangle : Shape, ICountouredShape
-        {
-            private double width;
-            private double height;
-
-            public Rectangle(double width, double height)
-            {
-                this.width = width;
-                this.height = height;
-            }
-
-            public override double Area()
-            {
-                return width * height;
-            }
-
-            public double Perimeter()
-            {
-                return (width + height) * 2;
-            }
-
-            //------------------------------ Operator Overloading ------------------------
-            public static Rectangle operator +(Rectangle rect1, Rectangle rect2)
-            {
-                double newWidth = rect1.width + rect2.width;
-                double newHeight = rect1.height + rect2.height;
-                return new Rectangle(newWidth, newHeight);
-            }
-        }
-
-        class Triangle : Shape
-        {
-            private double _base;
-            private double height;
-
-            public Triangle(double _base, double height)
-            {
-                this._base = _base;
-                this.height = height;
-            }
-
-            public override double Area()
-            {
-                return (_base * height) / 2;
             }
         }
 
