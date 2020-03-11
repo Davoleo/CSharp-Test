@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Console_Test.ElectronicDevice;
 using Console_Test.OOPTest;
 using Console_Test.Shapes;
 
@@ -421,10 +422,19 @@ namespace Console_Test
             Console.WriteLine("Circle Area: " + circle.Area());
             Console.WriteLine("tri is a Triangle: " + (tri is Triangle));
             Console.WriteLine("rect is a Rectangle: " + ((rect as Rectangle) != null));
+            Console.WriteLine("-------------------------------------------------------");
 
             //Operator Overloading for objects
             Rectangle combinedRectangle = new Rectangle(6, 10) + (Rectangle) rect;
             Console.WriteLine("combinedRectangle Area: " + combinedRectangle.Area());
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Interfaces
+            IElettronicDevice TV = TVRemote.GetDevice();
+            PowerButton powerButton = new PowerButton(TV);
+            powerButton.Execute();
+            powerButton.Undo();
 
             Console.WriteLine("-------------------------------------------------------");
             
@@ -519,57 +529,6 @@ namespace Console_Test
 
         }
 
-        class Animal
-        {
-            //Access Limits
-            //public - protected - private
-            // {get; set;} automatically defines getters and setters for the field
-            public double Height { get; set; }
-            public double Weight { get; set; }
-            public string Sound { get; set; }
-            private string name;
-
-            //custom getters/setters (properties)
-            public string Name
-            {
-                get { return name; }
-                set { this.name = value; }
-            }
-
-            //Constructors
-            //The default constructor has no parameters
-            public Animal()
-            {
-                this.Height = 0;
-                this.Weight = 0;
-                this.Sound = "NoSound";
-                this.Name = "NoName";
-                count++;
-            }
-
-            public Animal(double height, double weight, string sound, string name)
-            {
-                this.Height = height;
-                this.Weight = weight;
-                this.Sound = sound;
-                this.Name = name;
-                count++;
-            }
-
-            //Static fields and methods - common between instances of this class
-            private static int count = 0;
-            public static int GetCount() {
-                return count;
-            }
-
-            //Overrides a method in the superclass (needs the override keyword)
-            public override string ToString()
-            {
-                return String.Format("{0} is {1} meters tall, weighs {2} kg and makes this sound: {3}", name, Height,
-                    Weight, Sound);
-            }
-        }
-
         //Method Overloading
         //Same Method name - Different Method Signature (multiple versions of the same method)
         public static int GetSum(int num1 = 1, int num2 = 1)
@@ -582,27 +541,6 @@ namespace Console_Test
             return num1 + num2;
         }
 
-        //Subclass - C#: Inheritance 
-        class Cat : Animal
-        {
-            private string favFood { get; set; }
-
-            public Cat() : base()
-            {
-                this.favFood = "none";
-            }
-
-            public Cat(double height, double weight, string name, string sound, string favFood) : 
-                base(height, weight, sound, name)
-            {
-                this.favFood = favFood;
-            }
-
-            public override string ToString()
-            {
-                return String.Format("{0} is {1} tall, weighs {2} and likes to say {3} and eats {4}", Name, Height, Weight, Sound, favFood);
-            }
-        }
 
         //GENERICS
         class SimpleMapEntry<TK, TV>

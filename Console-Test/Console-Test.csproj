@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animal.cs" />
+    <Compile Include="ElectronicDevice\ICommand.cs" />
+    <Compile Include="ElectronicDevice\IElettronicDevice.cs" />
+    <Compile Include="ElectronicDevice\PowerButton.cs" />
+    <Compile Include="ElectronicDevice\Television.cs" />
+    <Compile Include="ElectronicDevice\TVRemote.cs" />
     <Compile Include="OOPTest\Battle.cs" />
     <Compile Include="OOPTest\Warrior.cs" />
     <Compile Include="Program.cs" />
