@@ -188,6 +188,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DataTest.mdf</DependentUpon>
     </Content>
+    <Content Include="SQL\dbo.Athletes.sql" />
+    <Content Include="SQL\dbo.listAthletesProcedure.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
