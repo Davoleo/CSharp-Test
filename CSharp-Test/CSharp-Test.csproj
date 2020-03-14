@@ -115,6 +115,12 @@
       <DependentUpon>Checkbox.cs</DependentUpon>
     </Compile>
     <Compile Include="CAD\geometria\Point.cs" />
+    <Compile Include="SQL\SQLMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQL\SQLMain.Designer.cs">
+      <DependentUpon>SQLMain.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="base\ComboBox.resx">
       <DependentUpon>ComboBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="base\Checkbox.resx">
       <DependentUpon>Checkbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQL\SQLMain.resx">
+      <DependentUpon>SQLMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

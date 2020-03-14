@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CSharp_Test.CAD;
+using CSharp_Test.SQL;
 
 namespace CSharp_Test
 {
     public partial class Main : Form
     {
-        Date data = new Date();
-        public static MainCAD cad = new MainCAD();
+        private readonly MainCAD cad = new MainCAD();
+        private readonly SQLMain sqlForm = new SQLMain();
 
-		public Main()
+        public Main()
         {
             InitializeComponent();
-            cad.Show();
+            sqlForm.Show();
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -91,6 +86,16 @@ namespace CSharp_Test
         {
             DTPicker dtPicker = new DTPicker();
             dtPicker.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cad.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
