@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -521,11 +522,190 @@ namespace Console_Test
             }
 
             Console.WriteLine("-------------------------------------------------------");
+            
             //OOP Game test
             Warrior maximus = new Warrior("Maximus", 1000, 120, 40);
             Warrior bob = new Warrior("Bob", 1000, 120, 40);
 
-            Battle.StartFight(maximus, bob);
+            Console.WriteLine("Disabled");
+            //Battle.StartFight(maximus, bob);
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            //Collections ----
+
+            #region ArrayList
+
+            //You can add different kind of objects ArrayLists
+            ArrayList arrayList = new ArrayList();
+            arrayList.Add("Bob");
+            arrayList.Add(43);
+
+            //Number of items in the arraylist
+            Console.WriteLine("ArrayList Count: " + arrayList.Count);
+            //Capacity is always double the count (?)
+            Console.WriteLine("ArrayList Capacity: " + arrayList.Capacity);
+
+            ArrayList arrayList2 = new ArrayList();
+            //Add an array to the ArrayList
+            arrayList2.AddRange(new object[] {"Jeff", "Dave", "Egg", "Edge"});
+
+            arrayList.AddRange(arrayList2);
+
+            //Sort items in natural order
+            arrayList2.Sort();
+            //Reverse the order of items
+            arrayList2.Reverse();
+
+            //Insert some item at a specific index
+            arrayList2.Insert(1, "PI");
+
+            //Sub-Arraylist made of some of the items in the original arraylist
+            ArrayList range = arrayList2.GetRange(0, 2);
+
+            Console.WriteLine("arrayList object ---");
+            foreach (object o in arrayList)
+            {
+                Console.Write(o + "\t");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("arrayList2 object ---");
+            foreach (object o in arrayList2)
+            {
+                Console.Write(o + "\t");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("range object ----");
+            foreach (object o in range)
+            {
+                Console.Write(o + "\t");
+            }
+            Console.WriteLine();
+
+            //Remove the item at the 0 index
+            //arrayList2.RemoveAt(0);
+
+            //Removes the first 2 items starting from index 0
+            //arrayList2.RemoveRange(0, 2);
+
+            //Return the index of a specific object - if it doesn't find any it returns -1
+            Console.WriteLine("Index of Edge: " + arrayList2.IndexOf("Edge"));
+
+            //Converting ArrayLists to arrays
+            string[] array = (string[]) arrayList2.ToArray(typeof(string));
+
+            //Converting back to Arraylist
+            ArrayList listFromArray = new ArrayList(array);
+
+            #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region Dictionary
+
+            //Stores a list of key-value pairs
+            Dictionary<string, string> langsProjs = new Dictionary<string, string>();
+
+            //Add A Key-Value Pair
+            langsProjs.Add("C#", "CSharp-Test");
+            langsProjs.Add("Java", "Metallurgy 4: Reforged");
+            langsProjs.Add("Dart", "sample_flutter_app");
+
+            //Removes a Pair from a given key
+            langsProjs.Remove("Dart");
+
+            //Number of pairs in the list
+            Console.WriteLine("Count: " + langsProjs.Count);
+
+            //Returns wether a key is present
+            Console.WriteLine("C# is present: " + langsProjs.ContainsKey("C#"));
+
+            //Gets the value of Java and outputs into a new string called test
+            langsProjs.TryGetValue("Java", out string test);
+            Console.WriteLine("Java: " + test);
+
+            //Loop over all the pairs in the list
+            Console.WriteLine("LOOP:");
+            foreach (KeyValuePair<string, string> pair in langsProjs)
+            {
+                Console.WriteLine($"{pair.Key} - {pair.Value}");
+            }
+
+            //Empties the dictionary Completely
+            langsProjs.Clear();
+
+            #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region Queue
+
+            //Creates a new Empty Queue
+            Queue queue = new Queue();
+
+            //Adds an item to the queue
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+
+            //Loop over a queue
+            foreach (object num in queue)
+            {
+                Console.Write(num + "\t");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("is 3 in the queue: " + queue.Contains(3));
+
+            //Removes the first item and return it to you
+            Console.WriteLine("Removes 1: " + queue.Dequeue());
+
+            //Returns the first item in the queue without removing it
+            Console.WriteLine("Peek the firs num: " + queue.Peek());
+
+            //Empties the queue
+            queue.Clear();
+
+            #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region Stack
+
+            Stack stack = new Stack();
+
+            //Adds an item to the stack
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Push(4);
+
+            //Loop over a stack - items are returned in the opposite order
+            foreach (var item in stack)
+            {
+                Console.WriteLine($"Item: {item}");
+            }
+
+            //Returns the last item in the stack without removing it
+            Console.WriteLine(stack.Peek());
+
+            //Returns the last item in the stack removing it
+            Console.WriteLine(stack.Pop());
+
+            //Returns wether the stack contains an item or not
+            Console.WriteLine(stack.Contains(3));
+
+            //Convert to an array and print it with the Join function
+            Console.WriteLine(string.Join(", ", stack.ToArray()));
+
+            //Empties the stack
+            stack.Clear();
+
+            #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
 
         }
 
