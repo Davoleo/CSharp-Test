@@ -15,6 +15,8 @@ namespace Console_Test
         static void Main(string[] args)
         {
 
+            #region Basics
+
             // Example Single-line Comment
             /* Example 
              * Multiline
@@ -88,6 +90,10 @@ namespace Console_Test
             //Generating Random Numbers
             Random rand = new Random();
             Console.WriteLine("Random number between 1 and 10: " + rand.Next(1, 11));
+
+            #endregion
+
+            #region Conditionals and Loops
 
             //Relational Operators: > < >= <= == !=
             //Logical Operators: && (AND) || (OR) ^ (XOR) ! (NOT)
@@ -191,6 +197,10 @@ namespace Console_Test
             }
 
             Console.WriteLine("-------------------------------------------------------");
+
+            #endregion
+
+            #region Strings & Arrays
 
             //Strings
             //Escape Sequences: Allow you to enter special chars in strings
@@ -345,7 +355,11 @@ namespace Console_Test
             numList.Sort();
 
             Console.WriteLine("-------------------------------------------------------");
+
+            #endregion
             
+            #region Exceptions
+
             //Exception Handling
             //Try and Catch Structure
             try
@@ -374,6 +388,10 @@ namespace Console_Test
             }
 
             Console.WriteLine("-------------------------------------------------------");
+
+            #endregion
+
+            #region OOP
 
             //Classes and Objects
             Animal botolo = new Animal(0.5, 6, "Meeer", "Botolo");
@@ -500,6 +518,8 @@ namespace Console_Test
             }
             Console.WriteLine();
             Console.WriteLine("-------------------------------------------------------");
+
+            #endregion
 
             //File I/O
             string[] nicks = {"Davoleo", "Matpac", "Pierknight", "gesudio"};
