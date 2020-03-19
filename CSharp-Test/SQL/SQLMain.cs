@@ -20,7 +20,7 @@ namespace CSharp_Test.SQL
 
             MessageBox.Show("Connection Established");
 
-            SqlCommand command = new SqlCommand("INSERT INTO OS (nameOS, year, averageLicenseCost) VALUES ('bubbleOS', '2015', '55.10')", connection);
+            SqlCommand command = new SqlCommand($"INSERT INTO OS (nameOS, year, averageLicenseCost) VALUES ('{txbOS.Text}', '{dtpReleaseYear.Value.Year}', '{txbPrice.Text.Replace(',', '.')}')", connection);
             command.ExecuteNonQuery();
 
             connection.Close();
