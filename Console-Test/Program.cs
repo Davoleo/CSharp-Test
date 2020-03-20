@@ -462,6 +462,18 @@ namespace Console_Test
 
             davPass.ShowData();
 
+            //Generics work with multiple data types
+            int firstInt = 5, secondInt = 4;
+            GetSum(ref firstInt, ref secondInt);
+            string firstString = firstInt.ToString();
+            string secondString = secondInt.ToString();
+            GetSum(ref firstString, ref secondString);
+
+            Rectangle<int> rect1 = new Rectangle<int>(20, 50);
+            Console.WriteLine(rect1.GetArea());
+            Rectangle<string> rect2 = new Rectangle<string>("20", "50");
+            Console.WriteLine(rect2.GetArea());
+
             Console.WriteLine("-------------------------------------------------------");
 
             Temperature waveTemp = Temperature.WARM;
@@ -757,6 +769,35 @@ namespace Console_Test
             public void ShowData()
             {
                 Console.WriteLine("{0} is {1}", this.key, this.value);
+            }
+        }
+
+        //Generic Method
+        //allows to perform the same operation on multiple different data types
+        public static void GetSum<T>(ref T num1, ref T num2)
+        {
+            double dx = Convert.ToDouble(num1);
+            double dy = Convert.ToDouble(num1);
+            Console.WriteLine($"{dx} + {dy} = {dx + dy}");
+        }
+
+        public struct Rectangle<T>
+        {
+            public T Width { get; set; }
+
+            public T Height { get; set; }
+
+            public Rectangle(T width, T height)
+            {
+                Width = width;
+                Height = height;
+            }
+
+            public string GetArea()
+            {
+                double width = Convert.ToDouble(Width);
+                double height = Convert.ToDouble(Height);
+                return string.Format($"{Width} * {Height} = {width * height}");
             }
         }
 

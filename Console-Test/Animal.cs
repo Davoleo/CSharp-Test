@@ -16,7 +16,7 @@ namespace Console_Test
         public string Name
         {
             get { return name; }
-            set { this.name = value; }
+            set { name = value; }
         }
 
         //Constructors
