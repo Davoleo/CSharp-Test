@@ -511,11 +511,17 @@ namespace Console_Test
             //DELEGATES - Passing methods to other methods as parameters
 
             //Anonymous method of type EvaluateExpression
-            EvaluateExpression sum = delegate(double n1, double n2) { return n1 + n2; };
-            EvaluateExpression multiplication = delegate(double n1, double n2) { return n1 * n2; };
+            EvaluateExpression add = delegate(double n1, double n2) { return n1 + n2; };
+            //Direct Delegate Assignment
+            EvaluateExpression substract = (n1, n2) => { return n1 + n2; };
+            EvaluateExpression multiply = delegate(double n1, double n2) { return n1 * n2; };
 
-            Console.WriteLine("5 + 10 = " + sum(5, 10));
-            Console.WriteLine("5 * 10 = " + multiplication(5, 10));
+            //Calls both the delegates
+            EvaluateExpression subtractMultuply = substract + multiply;
+
+            Console.WriteLine("5 + 10 = " + add(5, 10));
+            Console.WriteLine("5 * 10 = " + multiply(5, 10));
+            Console.WriteLine("Subtract & Multiply 10 & 4: " + subtractMultuply(10, 4));
 
             //Lamda expressions - Anonymous functions
             Func<int, int, int> subtract = (x, y) => x - y;
@@ -834,6 +840,7 @@ namespace Console_Test
         }
 
         //Example Delegate
-        delegate double EvaluateExpression(double num1, double num2);
+        public delegate double EvaluateExpression(double num1, double num2);
+
     }
 }
