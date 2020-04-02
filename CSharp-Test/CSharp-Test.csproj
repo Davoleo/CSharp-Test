@@ -115,6 +115,7 @@
       <DependentUpon>Checkbox.cs</DependentUpon>
     </Compile>
     <Compile Include="CAD\geometria\Point.cs" />
+    <Compile Include="SQL\ComboData.cs" />
     <Compile Include="SQL\SQLMain.cs">
       <SubType>Form</SubType>
     </Compile>

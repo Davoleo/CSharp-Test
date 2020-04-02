@@ -104,6 +104,7 @@
             this.comboPlaces.Name = "comboPlaces";
             this.comboPlaces.Size = new System.Drawing.Size(135, 21);
             this.comboPlaces.TabIndex = 9;
+            this.comboPlaces.SelectedIndexChanged += new System.EventHandler(this.comboPlaces_SelectedIndexChanged);
             // 
             // label4
             // 

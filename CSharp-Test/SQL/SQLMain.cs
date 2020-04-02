@@ -1,5 +1,5 @@
 ﻿using System;
-using System.CodeDom;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -12,6 +12,8 @@ namespace CSharp_Test.SQL
             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Everything\Coding\lang-projects\C#\CSharp-Test\CSharp-Test\DataTest.mdf;Integrated Security=True"
             );
 
+        List<int> places = new List<int>();
+
         public SQLMain()
         {
             InitializeComponent();
@@ -23,7 +25,8 @@ namespace CSharp_Test.SQL
 
             MessageBox.Show("Connection Established");
 
-            SqlCommand command = new SqlCommand($"INSERT INTO OS (nameOS, year, averageLicenseCost) VALUES ('{txbOS.Text}', '{dtpReleaseYear.Value.Year}', '{txbPrice.Text.Replace(',', '.')}')", connection);
+            SqlCommand command = new SqlCommand("INSERT INTO OS (nameOS, year, averageLicenseCost, nextConventionPlace) " +
+                                                $"VALUES ('{txbOS.Text}', '{dtpReleaseYear.Value.Year}', '{txbPrice.Text.Replace(',', '.')}', '{places[comboPlaces.SelectedIndex]}')", connection);
             command.ExecuteNonQuery();
 
             connection.Close();
@@ -40,10 +43,18 @@ namespace CSharp_Test.SQL
             reader = command.ExecuteReader();
 
             while (reader.Read())
-                comboPlaces.Items.Add(reader["name"]);
+            {
+                ComboData data = new ComboData((string) reader["name"], (int) reader["idPlace"]);
+                comboPlaces.Items.Add(data);
+            }
+                
             comboPlaces.SelectedIndex = 0;
-
             connection.Close();
+        }
+
+        private void comboPlaces_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show((comboPlaces.Items[comboPlaces.SelectedIndex] as ComboData).ID + " is the currently Selected Place");
         }
     }
 }
