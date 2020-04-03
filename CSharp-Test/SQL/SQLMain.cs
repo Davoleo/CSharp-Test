@@ -1,60 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace CSharp_Test.SQL
 {
-    public partial class SQLMain : Form
+    public partial class SqlMain : Form
     {
 
-        public static readonly SqlConnection connection = new SqlConnection(
+        private static readonly SqlConnection Connection = new SqlConnection(
             @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Everything\Coding\lang-projects\C#\CSharp-Test\CSharp-Test\DataTest.mdf;Integrated Security=True"
             );
 
-        List<int> places = new List<int>();
+        private readonly DataTable placesTable = new DataTable();
 
-        public SQLMain()
+        public SqlMain()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connection.Open();
+            Connection.Open();
 
             MessageBox.Show("Connection Established");
 
             SqlCommand command = new SqlCommand("INSERT INTO OS (nameOS, year, averageLicenseCost, nextConventionPlace) " +
-                                                $"VALUES ('{txbOS.Text}', '{dtpReleaseYear.Value.Year}', '{txbPrice.Text.Replace(',', '.')}', '{places[comboPlaces.SelectedIndex]}')", connection);
+                                                $"VALUES ('{txbOS.Text}', '{dtpReleaseYear.Value.Year}', '{txbPrice.Text.Replace(',', '.')}', '{comboPlaces.SelectedValue}')", Connection);
             command.ExecuteNonQuery();
 
-            connection.Close();
+            Connection.Close();
 
             MessageBox.Show("Connection Terminated");
         }
 
         private void SQLMain_Load(object sender, EventArgs e)
         {
-            connection.Open();
+            Connection.Open();
 
-            SqlDataReader reader;
-            SqlCommand command = new SqlCommand("SELECT * FROM Places ORDER BY name", connection);
-            reader = command.ExecuteReader();
+            SqlCommand command = new SqlCommand("SELECT * FROM Places ORDER BY name", Connection);
 
-            while (reader.Read())
-            {
-                ComboData data = new ComboData((string) reader["name"], (int) reader["idPlace"]);
-                comboPlaces.Items.Add(data);
-            }
-                
+            SqlDataReader reader = command.ExecuteReader();
+
+            placesTable.Load(reader);
+
+            comboPlaces.DataSource = placesTable;
+            comboPlaces.DisplayMember = "name";
+            comboPlaces.ValueMember = "idPlace";
             comboPlaces.SelectedIndex = 0;
-            connection.Close();
+
+            Connection.Close();
         }
 
         private void comboPlaces_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show((comboPlaces.Items[comboPlaces.SelectedIndex] as ComboData).ID + " is the currently Selected Place");
+            MessageBox.Show(comboPlaces.SelectedValue + " is the current Selected Place");
         }
     }
 }

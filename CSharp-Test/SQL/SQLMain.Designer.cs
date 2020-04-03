@@ -1,6 +1,6 @@
 ﻿namespace CSharp_Test.SQL
 {
-    partial class SQLMain
+    partial class SqlMain
     {
         /// <summary>
         /// Required designer variable.
@@ -130,7 +130,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
-            this.Name = "SQLMain";
+            this.Name = "SqlMain";
             this.Text = "SQLMain";
             this.Load += new System.EventHandler(this.SQLMain_Load);
             this.ResumeLayout(false);

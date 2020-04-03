@@ -9,7 +9,7 @@ namespace CSharp_Test
     public partial class Main : Form
     {
         private readonly MainCAD cad = new MainCAD();
-        private readonly SQLMain sqlForm = new SQLMain();
+        private readonly SqlMain sqlForm = new SqlMain();
 
         public Main()
         {
