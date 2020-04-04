@@ -37,11 +37,12 @@
             this.txbPrice = new System.Windows.Forms.TextBox();
             this.comboPlaces = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.placesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 179);
+            this.button1.Location = new System.Drawing.Point(12, 189);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(273, 23);
             this.button1.TabIndex = 0;
@@ -115,11 +116,23 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Next Convention Place";
             // 
-            // SQLMain
+            // placesLinkLabel
+            // 
+            this.placesLinkLabel.AutoSize = true;
+            this.placesLinkLabel.Location = new System.Drawing.Point(9, 160);
+            this.placesLinkLabel.Name = "placesLinkLabel";
+            this.placesLinkLabel.Size = new System.Drawing.Size(101, 13);
+            this.placesLinkLabel.TabIndex = 11;
+            this.placesLinkLabel.TabStop = true;
+            this.placesLinkLabel.Text = "Show/Edit Places...";
+            this.placesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.placesLinkLabel_LinkClicked);
+            // 
+            // SqlMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 214);
+            this.ClientSize = new System.Drawing.Size(297, 224);
+            this.Controls.Add(this.placesLinkLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboPlaces);
             this.Controls.Add(this.txbPrice);
@@ -149,5 +162,6 @@
         private System.Windows.Forms.TextBox txbPrice;
         private System.Windows.Forms.ComboBox comboPlaces;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel placesLinkLabel;
     }
 }

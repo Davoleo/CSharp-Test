@@ -54,7 +54,13 @@ namespace CSharp_Test.SQL
 
         private void comboPlaces_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboPlaces.SelectedValue + " is the current Selected Place");
+            //MessageBox.Show(comboPlaces.SelectedValue + " is the current Selected Place");
+        }
+
+        private void placesLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LocationsTable tableForm = new LocationsTable();
+            tableForm.ShowDialog();
         }
     }
 }
