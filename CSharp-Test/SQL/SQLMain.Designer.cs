@@ -38,15 +38,16 @@
             this.comboPlaces = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.placesLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 189);
+            this.button1.Location = new System.Drawing.Point(12, 183);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(273, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "ADD TO DATABASE";
+            this.button1.Text = "ADD TO DATABASE (connected method)";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -127,11 +128,21 @@
             this.placesLinkLabel.Text = "Show/Edit Places...";
             this.placesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.placesLinkLabel_LinkClicked);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 212);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(273, 23);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "ADD TO DATABASE (disconnected method)";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SqlMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 224);
+            this.ClientSize = new System.Drawing.Size(297, 247);
             this.Controls.Add(this.placesLinkLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboPlaces);
@@ -141,6 +152,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.Name = "SqlMain";
@@ -163,5 +175,6 @@
         private System.Windows.Forms.ComboBox comboPlaces;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel placesLinkLabel;
+        private System.Windows.Forms.Button button2;
     }
 }
