@@ -10,6 +10,7 @@ namespace CSharp_Test.SQL
 
         SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Everything\Coding\lang-projects\C#\CSharp-Test\CSharp-Test\DataTest.mdf;Integrated Security=True");
         private DataTable tablePlaces = new DataTable();
+        private bool saved = false;
 
         private void LoadData()
         {
@@ -38,13 +39,14 @@ namespace CSharp_Test.SQL
 
             foreach (DataGridViewRow row in dataGridPlaces.Rows)
             {
-                if (row.Cells[0].Style.ForeColor != SystemColors.ControlText)
+                if (row.Cells[0].Style.ForeColor == Color.DarkOrange)
                 {
-                    if (row.Cells[0].Style.ForeColor == Color.DarkOrange)
-                        command.CommandText = $"UPDATE Places SET name = '{row.Cells["name"]}' WHERE idPlace = '{row.Cells["idPlace"].Value}'";
-                    else
-                        command.CommandText = $"INSERT INTO Places (name) VALUES ('{row.Cells["name"].Value}')";
-
+                    command.CommandText = $"UPDATE Places SET name = '{row.Cells["name"].Value}' WHERE idPlace = '{row.Cells["idPlace"].Value}'";
+                    command.ExecuteNonQuery();
+                } 
+                else if (row.Cells[0].Style.ForeColor == Color.LimeGreen)
+                {
+                    command.CommandText = $"INSERT INTO Places (name) VALUES ('{row.Cells["name"].Value}')";
                     command.ExecuteNonQuery();
                 }
             }
@@ -61,6 +63,7 @@ namespace CSharp_Test.SQL
         private void buttonSave_Click(object sender, System.EventArgs e)
         {
             UpdateData();
+            saved = true;
             MessageBox.Show("Database was updated", "SQL Table", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }
@@ -68,7 +71,8 @@ namespace CSharp_Test.SQL
         private void dataGridPlaces_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewCell cell in dataGridPlaces.Rows[e.RowIndex].Cells)
-                cell.Style.ForeColor = Color.DarkOrange;
+                if (cell.Style.ForeColor != Color.LimeGreen)
+                    cell.Style.ForeColor = Color.DarkOrange;
         }
 
         private void dataGridPlaces_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -100,14 +104,17 @@ namespace CSharp_Test.SQL
         //Warn the user that data won't be saved
         private void LocationsTable_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show(
-                "Are you sure you want to leave without saving the data and updating the Database?", 
-                "SQL Table", 
-                MessageBoxButtons.OKCancel, 
-                MessageBoxIcon.Warning);
+            if (!saved)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to leave without saving the data and updating the Database?", 
+                    "SQL Table", 
+                    MessageBoxButtons.OKCancel, 
+                    MessageBoxIcon.Warning);
 
-            if (result == DialogResult.Cancel)
-                e.Cancel = true;
+                if (result == DialogResult.Cancel)
+                    e.Cancel = true;
+            }
         }
 
         private void txbFilter_TextChanged(object sender, System.EventArgs e)

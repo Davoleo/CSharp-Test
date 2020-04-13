@@ -37,11 +37,13 @@
             // 
             // dataGridPlaces
             // 
+            this.dataGridPlaces.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridPlaces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPlaces.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridPlaces.Location = new System.Drawing.Point(0, 67);
+            this.dataGridPlaces.Location = new System.Drawing.Point(0, 88);
             this.dataGridPlaces.Name = "dataGridPlaces";
-            this.dataGridPlaces.Size = new System.Drawing.Size(208, 396);
+            this.dataGridPlaces.Size = new System.Drawing.Size(208, 358);
             this.dataGridPlaces.TabIndex = 0;
             this.dataGridPlaces.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPlaces_CellValueChanged);
             this.dataGridPlaces.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridPlaces_RowsAdded);
@@ -78,14 +80,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(208, 463);
+            this.ClientSize = new System.Drawing.Size(208, 446);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.txbFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridPlaces);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(224, 1000);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(224, 333);
             this.Name = "LocationsTable";
             this.Text = "LocationsTable";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LocationsTable_FormClosing);
