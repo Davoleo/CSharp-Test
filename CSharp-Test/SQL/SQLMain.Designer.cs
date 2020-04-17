@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,6 +41,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.placesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataSet1 = new CSharp_Test.SQL.DataSet1();
+            this.oSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.oSTableAdapter = new CSharp_Test.SQL.DataSet1TableAdapters.OSTableAdapter();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.placesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.placesTableAdapter = new CSharp_Test.SQL.DataSet1TableAdapters.PlacesTableAdapter();
+            this.idPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.averageLicenseCostDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nextConventionPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oSBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -138,11 +159,124 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idOSDataGridViewTextBoxColumn,
+            this.nameOSDataGridViewTextBoxColumn,
+            this.yearDataGridViewTextBoxColumn,
+            this.averageLicenseCostDataGridViewTextBoxColumn,
+            this.nextConventionPlaceDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.oSBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(302, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(443, 481);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "DataSet1";
+            this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // oSBindingSource
+            // 
+            this.oSBindingSource.DataMember = "OS";
+            this.oSBindingSource.DataSource = this.dataSet1;
+            // 
+            // oSTableAdapter
+            // 
+            this.oSTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idPlaceDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.placesBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(12, 254);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(273, 240);
+            this.dataGridView2.TabIndex = 13;
+            // 
+            // placesBindingSource
+            // 
+            this.placesBindingSource.DataMember = "Places";
+            this.placesBindingSource.DataSource = this.dataSet1;
+            // 
+            // placesTableAdapter
+            // 
+            this.placesTableAdapter.ClearBeforeFill = true;
+            // 
+            // idPlaceDataGridViewTextBoxColumn
+            // 
+            this.idPlaceDataGridViewTextBoxColumn.DataPropertyName = "idPlace";
+            this.idPlaceDataGridViewTextBoxColumn.HeaderText = "idPlace";
+            this.idPlaceDataGridViewTextBoxColumn.Name = "idPlaceDataGridViewTextBoxColumn";
+            this.idPlaceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // idOSDataGridViewTextBoxColumn
+            // 
+            this.idOSDataGridViewTextBoxColumn.DataPropertyName = "idOS";
+            this.idOSDataGridViewTextBoxColumn.Frozen = true;
+            this.idOSDataGridViewTextBoxColumn.HeaderText = "idOS";
+            this.idOSDataGridViewTextBoxColumn.Name = "idOSDataGridViewTextBoxColumn";
+            this.idOSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idOSDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameOSDataGridViewTextBoxColumn
+            // 
+            this.nameOSDataGridViewTextBoxColumn.DataPropertyName = "nameOS";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Olive;
+            this.nameOSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.nameOSDataGridViewTextBoxColumn.DividerWidth = 2;
+            this.nameOSDataGridViewTextBoxColumn.Frozen = true;
+            this.nameOSDataGridViewTextBoxColumn.HeaderText = "OS Name";
+            this.nameOSDataGridViewTextBoxColumn.Name = "nameOSDataGridViewTextBoxColumn";
+            this.nameOSDataGridViewTextBoxColumn.ToolTipText = "The name of the operating system";
+            // 
+            // yearDataGridViewTextBoxColumn
+            // 
+            this.yearDataGridViewTextBoxColumn.DataPropertyName = "year";
+            this.yearDataGridViewTextBoxColumn.HeaderText = "year";
+            this.yearDataGridViewTextBoxColumn.Name = "yearDataGridViewTextBoxColumn";
+            // 
+            // averageLicenseCostDataGridViewTextBoxColumn
+            // 
+            this.averageLicenseCostDataGridViewTextBoxColumn.DataPropertyName = "averageLicenseCost";
+            this.averageLicenseCostDataGridViewTextBoxColumn.HeaderText = "averageLicenseCost";
+            this.averageLicenseCostDataGridViewTextBoxColumn.Name = "averageLicenseCostDataGridViewTextBoxColumn";
+            // 
+            // nextConventionPlaceDataGridViewTextBoxColumn
+            // 
+            this.nextConventionPlaceDataGridViewTextBoxColumn.DataPropertyName = "nextConventionPlace";
+            this.nextConventionPlaceDataGridViewTextBoxColumn.HeaderText = "nextConventionPlace";
+            this.nextConventionPlaceDataGridViewTextBoxColumn.Name = "nextConventionPlaceDataGridViewTextBoxColumn";
+            // 
             // SqlMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 247);
+            this.ClientSize = new System.Drawing.Size(757, 506);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.placesLinkLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.comboPlaces);
@@ -158,6 +292,11 @@
             this.Name = "SqlMain";
             this.Text = "SQLMain";
             this.Load += new System.EventHandler(this.SQLMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.oSBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.placesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +315,19 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel placesLinkLabel;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private DataSet1 dataSet1;
+        private System.Windows.Forms.BindingSource oSBindingSource;
+        private DataSet1TableAdapters.OSTableAdapter oSTableAdapter;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.BindingSource placesBindingSource;
+        private DataSet1TableAdapters.PlacesTableAdapter placesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPlaceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idOSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameOSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn yearDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn averageLicenseCostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nextConventionPlaceDataGridViewTextBoxColumn;
     }
 }
