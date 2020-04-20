@@ -213,16 +213,11 @@
     <None Include="Resources\fideduo05.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\e-mails.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataTest.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="DataTest.mdf" />
     <Content Include="DataTest_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DataTest.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\floppy-disk-save-pngrepo-com.png" />
     <Content Include="SQL\dbo.Athletes.sql" />
     <Content Include="SQL\dbo.listAthletesProcedure.sql" />
   </ItemGroup>

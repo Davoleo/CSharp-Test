@@ -36,10 +36,10 @@ namespace CSharp_Test.SQL
 
         private void SQLMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet1.Places' table. You can move, or remove it, as needed.
-            this.placesTableAdapter.Fill(this.dataSet1.Places);
-            // TODO: This line of code loads data into the 'dataSet1.OS' table. You can move, or remove it, as needed.
-            this.oSTableAdapter.Fill(this.dataSet1.OS);
+            //This lines of code load data into the 'dataSet1.OS' and 'dataSet1.Places' tables.
+            placesTableAdapter.Fill(dataSet1.Places);
+            oSTableAdapter.Fill(dataSet1.OS);
+
             Connection.Open();
 
             SqlCommand command = new SqlCommand("SELECT * FROM Places ORDER BY name", Connection);
@@ -65,6 +65,12 @@ namespace CSharp_Test.SQL
         {
             LocationsTable tableForm = new LocationsTable();
             tableForm.ShowDialog();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            oSTableAdapter.Update(dataSet1.OS);
+            MessageBox.Show("Database Updated");
         }
     }
 }
