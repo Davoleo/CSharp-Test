@@ -745,6 +745,88 @@ namespace Console_Test
 
             Console.WriteLine("-------------------------------------------------------");
 
+            #region LINQ EXTENSION METHODS
+            //LINQ EXTENSION METHODS
+
+            //Lamdas with Delegates
+            Console.WriteLine("-- Lambda Expressions --");
+            doubleIt doubleIt = x => x * 2;
+            Console.WriteLine($"5 * 2 = {doubleIt(5)}");
+
+            List<int> numberList = new List<int> {1, 9, 2, 6, 3};
+
+            //.Where() METHOD
+            var evenList = numberList.Where(a => a % 2 == 0).ToList();
+            foreach (var k in evenList)
+            {
+                Console.Write(k + ", ");
+            }
+            Console.WriteLine();
+
+            //2nd Example of .Where()
+            var rangeList = numberList.Where(x => x > 2 && x < 9).ToList();
+            foreach (var k in rangeList)
+            {
+                Console.Write(k + ", ");
+            }
+            Console.WriteLine();
+
+            //Coin flips (T = 0 or C = 1)
+            List<int> coinFlips = new List<int>();
+            int flips = 0;
+            while (flips < 100)
+            {
+                coinFlips.Add(rand.Next(0, 2));
+                flips++;
+            }
+            //Count method with predicate
+            Console.WriteLine($"Testa Count: {coinFlips.Count(a => a == 0)}");
+            Console.WriteLine($"Croce Count: {coinFlips.Count(a => a == 1)}");
+
+            //.Select() METHOD
+            var oneToTen = new List<int>();
+            oneToTen.AddRange(Enumerable.Range(1, 10));
+            var squares = oneToTen.Select(x => x * x);
+
+            foreach (var k in squares)
+            {
+                Console.Write(k + ", ");
+            }
+            Console.WriteLine();
+
+            //.Zip() METHOD
+            var listOne = new List<int>{1, 3, 4};
+            var listTwo = new List<int>{4, 6, 8};
+            var sumList = listOne.Zip(listTwo, (l1Value, l2Value) => l1Value + l2Value);
+            foreach (var k in sumList)
+            {
+                Console.Write(k + ", ");
+            }
+            Console.WriteLine();
+
+            //.Aggregate() METHOD
+            var nums1to5 = new List<int>{1, 2, 3, 4, 5};
+            Console.WriteLine("Sum of elements {0}", nums1to5.Aggregate((a, b) => a + b));
+
+            //.AsQueryable.Average() Method
+            Console.WriteLine($"Average: {nums1to5.AsQueryable().Average()}");
+            //.All()
+            Console.WriteLine($"All > 3 nums? {nums1to5.All(x => x > 3)}");
+            //.Any()
+            Console.WriteLine($"Any num > 3? {nums1to5.Any(x => x > 3)}");
+
+            //.Distinct()
+            var listWithDupes = new List<int>{1, 2, 3, 2, 3};
+            Console.WriteLine($"Distinct: {string.Join(", ", listWithDupes.Distinct())}");
+
+            //.Except() - Prints all the values that don't exist in the second list
+            Console.WriteLine($"Except: {string.Join(", ", nums1to5.Except(listWithDupes))}");
+
+            //.Intersect() - Returns a list with common values between two lists
+            Console.WriteLine($"Intersect: {string.Join(", ", nums1to5.Intersect(listWithDupes))}");
+
+            #endregion
+
         }
 
         //Method Overloading
@@ -841,6 +923,8 @@ namespace Console_Test
 
         //Example Delegate
         public delegate double EvaluateExpression(double num1, double num2);
+
+        delegate double doubleIt(double val);
 
     }
 }
