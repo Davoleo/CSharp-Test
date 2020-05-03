@@ -23,19 +23,27 @@ namespace Console_Test
         //The default constructor has no parameters
         public Animal()
         {
-            this.Height = 0;
-            this.Weight = 0;
-            this.Sound = "NoSound";
-            this.Name = "NoName";
+            Height = 0;
+            Weight = 0;
+            Sound = "NoSound";
+            Name = "NoName";
             count++;
+        }
+
+        public Animal(string name)
+        {
+            this.name = name;
+            Height = 0;
+            Weight = 0;
+            Sound = "NoSound";
         }
 
         public Animal(double height, double weight, string sound, string name)
         {
-            this.Height = height;
-            this.Weight = weight;
-            this.Sound = sound;
-            this.Name = name;
+            Height = height;
+            Weight = weight;
+            Sound = sound;
+            this.name = name;
             count++;
         }
 

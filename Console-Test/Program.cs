@@ -3,7 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
+using Console_Test.Collections;
+using Console_Test.CustomClasses;
 using Console_Test.ElectronicDevice;
 using Console_Test.OOPTest;
 using Console_Test.Shapes;
@@ -824,6 +827,42 @@ namespace Console_Test
 
             //.Intersect() - Returns a list with common values between two lists
             Console.WriteLine($"Intersect: {string.Join(", ", nums1to5.Intersect(listWithDupes))}");
+
+            #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region Custom Collection Class
+
+            AnimalFarm animals = new AnimalFarm();
+            animals[0] = new Animal("Wilbur");
+            animals[1] = new Animal("Templeton");
+            animals[2] = new Animal("Wally");
+            animals[3] = new Animal("ooooooooooooooooooooooooeuf");
+
+            foreach (Animal animal in animals)
+            {
+                Console.WriteLine(animal.Name);
+            }
+
+            Box box1 = new Box(2, 3, 4);
+            Box box2 = new Box(5, 6, 7);
+
+
+            Box boxSum = box1 + box2;
+            Console.WriteLine($"Box Sum: {boxSum}");
+
+            Console.WriteLine($"Box -> Int: {(int) box1}");
+            Console.WriteLine($"Int -> Box: {(Box) 4}");
+
+            //Anonymous type object
+            var anonymous = new
+            {
+                Name = "Mr Unknown",
+                Status = 312
+            };
+
+            Console.WriteLine("{0} status is {1}", anonymous.Name, anonymous.Status);
 
             #endregion
 

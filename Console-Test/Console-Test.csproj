@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animal.cs" />
+    <Compile Include="CustomClasses\AnimalFarm.cs" />
+    <Compile Include="CustomClasses\Box.cs" />
     <Compile Include="ElectronicDevice\ICommand.cs" />
     <Compile Include="ElectronicDevice\IElettronicDevice.cs" />
     <Compile Include="ElectronicDevice\PowerButton.cs" />
