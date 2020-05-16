@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using Console_Test.Collections;
 using Console_Test.CustomClasses;
@@ -15,6 +14,9 @@ namespace Console_Test
 {
     class Program
     {
+
+        private static Random random = new Random();
+
         static void Main(string[] args)
         {
 
@@ -866,6 +868,22 @@ namespace Console_Test
 
             #endregion
 
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region LINQ
+            
+            //Stands for Launguage Integrated Query - Provides tools to work with data
+            QueryStringArray();
+
+            QueryIntArray();
+
+            QueryArrayList();
+
+            QueryCollection();
+
+            QueryAnimalData();
+
+            #endregion
         }
 
         //Method Overloading
@@ -965,5 +983,190 @@ namespace Console_Test
 
         delegate double doubleIt(double val);
 
+        //LINQ section
+        private static void QueryStringArray()
+        {
+            string[] dogs =
+            {
+                "K9",
+                "Brian Griffin",
+                "Scooby Doo",
+                "Old Yeller",
+                "Rin Tin Tin",
+                "Benji",
+                "Charlie B. Barkin",
+                "Lassie",
+                "Snoopy"
+            };
+
+            var dogWithSpacesAZOrdered =
+                from dog in dogs
+                where dog.Contains(' ')
+                orderby dog ascending
+                select dog;
+
+            foreach (var dog in dogWithSpacesAZOrdered)
+            {
+                Console.WriteLine(dog);
+            }
+            Console.WriteLine();
+        }
+
+        private static int[] QueryIntArray()
+        {
+            int[] nums = {5, 10, 15, 20, 25, 30, 35};
+
+            var greater20 = 
+                from num in nums
+                where num > 20
+                orderby num descending 
+                select num;
+
+            foreach (var i in greater20)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine();
+            Console.WriteLine($"Get Type: {greater20.GetType()}");
+
+            //Converting Queries to other types of collections
+            var listGt20 = greater20.ToList();
+            var arrayGt20 = greater20.ToArray();
+
+            //Queries automatically work despite being called only the first time (The changes done to the Collection will be reflected in the query)
+            nums[0] = 40;
+            foreach (var i in greater20)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine();
+
+            return arrayGt20;
+        }
+
+        private static void QueryArrayList()
+        {
+            ArrayList animals = new ArrayList()
+            {
+                new Animal(5, 25, "Brob"),
+                new Animal(8, 544, "Wrapper"),
+                new Animal(90, 23, "Wraw"),
+                new Animal(1, 11, "Unonu"),
+                new Animal(5, 25, "blich")
+            };
+
+            var animalsEnum = animals.OfType<Animal>();
+
+            var smallAnimals =
+                from animal in animalsEnum
+                where animal.Weight <= 90
+                orderby animal.Name
+                select animal;
+
+            foreach (var animal in smallAnimals)
+            {
+                Console.WriteLine(animal.ToString());
+            }
+            Console.WriteLine();
+        }
+
+        private static void QueryCollection()
+        {
+            var animals = new List<Animal>
+            {
+                new Animal(5, 25, "Brob"),
+                new Animal(8, 544, "Wrapper"),
+                new Animal(90, 88, "Wraw"),
+                new Animal(1, 11, "Unonu"),
+                new Animal(5, 25, "blich")
+            };
+
+            var bigBois =
+                from boi in animals
+                where boi.Weight > 70 && boi.Height >= 25
+                orderby boi.Name
+                select boi;
+
+            foreach (var boi in bigBois)
+            {
+                Console.WriteLine(boi.ToString());
+            }
+            Console.WriteLine();
+
+        }
+
+        private static void QueryAnimalData()
+        {
+            Animal[] animals =
+            {
+                new Animal(5, 25, "Brob"),
+                new Animal(8, 544, "Wrapper"),
+                new Animal(90, 23, "Wraw"),
+                new Animal(1, 11, "Unonu"),
+                new Animal(5, 25, "blich")
+            };
+
+            for (var i = 0; i < animals.Length; i++)
+                animals[i].Id = random.Next(3) + 1;
+
+            AnimalOwner[] owners =
+            {
+                new AnimalOwner {Name = "LMAO XD", Id = 2},
+                new AnimalOwner {Name = "PPPPPPPPIERLUIGGIIIIIIIII", Id = 3},
+                new AnimalOwner {Name = ":O dandiest bitch", Id = 1}
+            };
+
+            var nameHeight =
+                from a in animals
+                select new
+                {
+                    a.Name,
+                    a.Height
+                };
+
+            Array nhArray = nameHeight.ToArray();
+            foreach (var i in nhArray)
+            {
+                Console.WriteLine(i.ToString());
+            }
+            Console.WriteLine();
+
+            var innerJoin =
+                from animal in animals
+                join owner in owners on animal.Id equals owner.Id
+                select new
+                {
+                    OwnerName = owner.Name,
+                    AnimalName = animal.Name
+                };
+
+            foreach (var i in innerJoin)
+            {
+                Console.WriteLine(i.ToString());
+            }
+            Console.WriteLine();
+
+            var groupJoin =
+                from owner in owners
+                orderby owner.Id
+                join animal in animals on owner.Id equals animal.Id
+                    into ownerGroup
+                select new
+                {
+                    Owner = owner.Name,
+                    Animals = from owner2 in ownerGroup
+                        orderby owner2.Name
+                        select owner2
+                };
+
+            foreach (var ownerGroup in groupJoin)
+            {
+                Console.WriteLine(ownerGroup.Owner);
+                foreach (var animal in ownerGroup.Animals)
+                {
+                    Console.WriteLine("- " + animal.Name);
+                }
+            }
+        }
     }
 }

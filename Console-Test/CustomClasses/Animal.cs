@@ -10,6 +10,8 @@ namespace Console_Test
         public double Height { get; set; }
         public double Weight { get; set; }
         public string Sound { get; set; }
+        public int Id { get; set; }
+
         private string name;
 
         //custom getters/setters (properties)
@@ -36,6 +38,14 @@ namespace Console_Test
             Height = 0;
             Weight = 0;
             Sound = "NoSound";
+        }
+
+        public Animal(double height, double weight, string name)
+        {
+            Height = height;
+            Weight = weight;
+            Sound = "NoSound";
+            this.name = name;
         }
 
         public Animal(double height, double weight, string sound, string name)

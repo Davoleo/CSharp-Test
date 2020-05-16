@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
+    <Compile Include="CustomClasses\Animal.cs" />
     <Compile Include="CustomClasses\AnimalFarm.cs" />
+    <Compile Include="CustomClasses\AnimalOwner.cs" />
     <Compile Include="CustomClasses\Box.cs" />
     <Compile Include="ElectronicDevice\ICommand.cs" />
     <Compile Include="ElectronicDevice\IElettronicDevice.cs" />
