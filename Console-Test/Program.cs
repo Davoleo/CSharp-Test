@@ -983,6 +983,8 @@ namespace Console_Test
 
         delegate double doubleIt(double val);
 
+        #region LINQ methods
+
         //LINQ section
         private static void QueryStringArray()
         {
@@ -1168,5 +1170,7 @@ namespace Console_Test
                 }
             }
         }
+
+        #endregion
     }
 }
