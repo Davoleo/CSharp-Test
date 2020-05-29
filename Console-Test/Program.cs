@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using Console_Test.Collections;
 using Console_Test.CustomClasses;
 using Console_Test.ElectronicDevice;
@@ -884,6 +885,63 @@ namespace Console_Test
             QueryAnimalData();
 
             #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region Threads
+
+            //Threading allows to execute operation on a different workflow instead of the Main one
+            //The workflow continuously and quickly changes thread to 
+
+            Thread thread = new Thread(Print1);
+            thread.Start();
+
+            for (int k = 0; k < 1000; k++)
+            {
+                Console.Write(0);
+            }
+            Console.WriteLine();
+
+            int counter = 1;
+            for (int k = 0; k < 10; k++)
+            {
+                Console.WriteLine(counter);
+                //Slow down the current thread of some time in ms
+                Thread.Sleep(500);
+                counter++;
+            }
+            Console.WriteLine("Thread Ended");
+
+            BankAccount account = new BankAccount(10);
+            Thread[] threads = new Thread[15];
+
+            Thread.CurrentThread.Name = "main";
+
+            for (int k = 0; k < threads.Length; k++)
+            {
+                Thread smolThread = new Thread(account.IssueWidthDraw);
+                smolThread.Name = k.ToString();
+                threads[k] = smolThread;
+            }
+
+            foreach (var smolThread in threads)
+            {
+                Console.WriteLine("Thread {0} Alive: {1}", smolThread.Name, smolThread.IsAlive);
+                smolThread.Start();
+                Console.WriteLine("Thread {0} Alive: {1}", smolThread.Name, smolThread.IsAlive);
+            }
+
+            Console.WriteLine("Current Priority: " + Thread.CurrentThread.Priority);
+            Console.WriteLine($"Thread {Thread.CurrentThread.Name} Ending");
+            
+            // Passing data to threads through lambda expressions
+            new Thread(() =>
+            {
+                countTo(5);
+                countTo(8);
+            }).Start();
+
+            #endregion
         }
 
         //Method Overloading
@@ -1168,6 +1226,66 @@ namespace Console_Test
                 {
                     Console.WriteLine("- " + animal.Name);
                 }
+            }
+        }
+
+        #endregion
+
+        #region Threading Extras
+
+        //Threading
+        private static void Print1()
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                Console.Write(1);
+            }
+        }
+
+        class BankAccount
+        {
+            private Object attackLock = new object();
+
+            private double Balance { get; set; }
+
+
+            public BankAccount(double balance)
+            {
+                Balance = balance;
+            }
+
+            public double Withdraw(double amount)
+            {
+                if (Balance - amount < 0) 
+                {
+                    Console.WriteLine($"Sorry €{Balance} in Account");
+                    return Balance;
+                }
+
+                //Doesn't allow to access this code until every other thread is finished
+                lock (attackLock)
+                {
+                    if (Balance >= amount)
+                    {
+                        Console.WriteLine($"Removed {amount}, Balance is now: {Balance - amount}");
+                        Balance -= amount;
+                    }
+
+                    return Balance;
+                }
+            }
+
+            public void IssueWidthDraw()
+            {
+                Withdraw(1);
+            }
+        }
+
+        private static void countTo(int max)
+        {
+            for (int i = 1; i <= max; i++)
+            {
+                Console.WriteLine(i);
             }
         }
 
