@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SqlMain));
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,7 +41,6 @@
             this.comboPlaces = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.placesLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameOSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +49,7 @@
             this.nextConventionPlaceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.placesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new CSharp_Test.SQL.DataSet1();
+            this.fKPlacesOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.oSTableAdapter = new CSharp_Test.SQL.DataSet1TableAdapters.OSTableAdapter();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -69,17 +69,16 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.fKPlacesOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.comboDetails = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.placesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPlacesOSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.oSBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKPlacesOSBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -88,7 +87,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(273, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "ADD TO DATABASE (connected method)";
+            this.button1.Text = "ADD TO DATABASE";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -169,16 +168,6 @@
             this.placesLinkLabel.Text = "Show/Edit Places...";
             this.placesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.placesLinkLabel_LinkClicked);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(12, 240);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(273, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "ADD TO DATABASE (disconnected method)";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
@@ -211,13 +200,13 @@
             // nameOSDataGridViewTextBoxColumn
             // 
             this.nameOSDataGridViewTextBoxColumn.DataPropertyName = "nameOS";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Olive;
-            this.nameOSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Olive;
+            this.nameOSDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.nameOSDataGridViewTextBoxColumn.DividerWidth = 2;
             this.nameOSDataGridViewTextBoxColumn.Frozen = true;
             this.nameOSDataGridViewTextBoxColumn.HeaderText = "OS Name";
@@ -257,6 +246,11 @@
             this.dataSet1.DataSetName = "DataSet1";
             this.dataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // fKPlacesOSBindingSource
+            // 
+            this.fKPlacesOSBindingSource.DataMember = "FK_Places_OS";
+            this.fKPlacesOSBindingSource.DataSource = this.placesBindingSource;
+            // 
             // oSBindingSource
             // 
             this.oSBindingSource.DataMember = "OS";
@@ -275,9 +269,9 @@
             this.idPlaceDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.placesBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(12, 278);
+            this.dataGridView2.Location = new System.Drawing.Point(12, 240);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(273, 240);
+            this.dataGridView2.Size = new System.Drawing.Size(273, 278);
             this.dataGridView2.TabIndex = 13;
             // 
             // idPlaceDataGridViewTextBoxColumn
@@ -379,7 +373,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -423,11 +416,6 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // fKPlacesOSBindingSource
-            // 
-            this.fKPlacesOSBindingSource.DataMember = "FK_Places_OS";
-            this.fKPlacesOSBindingSource.DataSource = this.placesBindingSource;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -468,7 +456,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.Name = "SqlMain";
@@ -477,12 +464,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.placesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fKPlacesOSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.oSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fKPlacesOSBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -500,7 +487,6 @@
         private System.Windows.Forms.ComboBox comboPlaces;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel placesLinkLabel;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource oSBindingSource;
