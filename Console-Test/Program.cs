@@ -545,7 +545,27 @@ namespace Console_Test
 
             #endregion
 
+
+            #region File IO
+
             //File I/O
+            //Access the current directory
+            DirectoryInfo dir = new DirectoryInfo(".");
+            DirectoryInfo davDir = new DirectoryInfo(@"C:\Users\Davoleo");
+
+            Console.WriteLine("Davoleo path: " + davDir.FullName);
+            Console.WriteLine("Davoleo dir name " +  davDir.Name);
+            Console.WriteLine(davDir.Parent);
+            Console.WriteLine(davDir.Attributes);
+            Console.WriteLine(davDir.CreationTime);
+
+            //Creates a directory
+            Directory.CreateDirectory(@"D:\C#Data");
+            DirectoryInfo dataDir = new DirectoryInfo(@"D:\C#Data");
+            //Directory.Delete(@"D:\C#Data");
+            string dataPath = @"D:\C#Data";
+            Console.WriteLine("-------------------------------------------------------");
+
             string[] nicks = {"Davoleo", "Matpac", "Pierknight", "gesudio"};
 
             using (StreamWriter writer = new StreamWriter("nicknames.txt"))
@@ -564,6 +584,43 @@ namespace Console_Test
                     Console.WriteLine(user);
                 }
             }
+
+            //Another Way of writing and reading
+            File.WriteAllLines(dataPath + "\\nicknames.txt", nicks);
+            Console.WriteLine(File.ReadAllBytes(dataPath + "\\nicknames.txt").ToString());
+
+            FileInfo[] textFiles = dataDir.GetFiles("*.txt", SearchOption.AllDirectories);
+            Console.WriteLine("Matches: {0}" + textFiles.Length);
+
+            Console.WriteLine(textFiles[0].Name + ", " + textFiles[0].Length);
+
+            string fileStreamPath = @"D:\C#Data\streamtest.txt";
+            FileStream stream = File.Open(fileStreamPath, FileMode.Create);
+            string randomString = "This is a random String";
+            byte[] randomStringByte = Encoding.Default.GetBytes(randString);
+            stream.Write(randomStringByte, 0, randomStringByte.Length);
+            stream.Position = 0;
+            stream.Close();
+
+            string binaryPath = @"D:\C#Data\file.dat";
+            FileInfo datFile = new FileInfo(binaryPath);
+            BinaryWriter binaryWriter = new BinaryWriter(datFile.OpenWrite());
+            string text = "Random Text";
+            age = 18;
+            double height = 12398;
+            
+            binaryWriter.Write(text);
+            binaryWriter.Write(age);
+            binaryWriter.Write(height);
+
+            binaryWriter.Close();
+
+            BinaryReader binaryReader = new BinaryReader(datFile.OpenRead());
+            Console.WriteLine(binaryReader.ReadString());
+            Console.WriteLine(binaryReader.ReadInt32());
+            Console.WriteLine(binaryReader.ReadDouble());
+
+            #endregion
 
             Console.WriteLine("-------------------------------------------------------");
             
