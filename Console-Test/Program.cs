@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
-using Console_Test.Collections;
+using System.Xml.Serialization;
 using Console_Test.CustomClasses;
 using Console_Test.ElectronicDevice;
 using Console_Test.OOPTest;
@@ -997,6 +998,47 @@ namespace Console_Test
                 countTo(5);
                 countTo(8);
             }).Start();
+
+            #endregion
+
+            Console.WriteLine("-------------------------------------------------------");
+
+            #region Serialization
+
+            Animal dummyDum = new Animal( 45, 25, "Roar", "Dum");
+            Stream dummyStream = File.Open("AnimalData.dat", FileMode.Create);
+            
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            binaryFormatter.Serialize(dummyStream, dummyDum);
+            dummyStream.Close();
+
+            dummyDum = null;
+
+            dummyStream = File.Open("AnimalData.dat", FileMode.Open);
+            binaryFormatter = new BinaryFormatter();
+
+            dummyDum = (Animal) binaryFormatter.Deserialize(dummyStream);
+            dummyStream.Close();
+
+            Console.WriteLine("Dummy Dum from binary: " + dummyDum.ToString());
+
+            dummyDum.Weight = 33;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(Animal));
+
+            using (TextWriter tw = new StreamWriter(@"D:\C#Data\dummy-dum.xml"))
+            {
+                xmlSerializer.Serialize(tw, dummyDum);
+            }
+
+            dummyDum = null;
+
+            XmlSerializer xmlDeserializer = new XmlSerializer(typeof(Animal));
+            TextReader txtReader = new StreamReader(@"D:\C#Data\dummy-dum.xml");
+            object obj = xmlDeserializer.Deserialize(txtReader);
+            dummyDum = (Animal) obj;
+            txtReader.Close();
+
+            Console.WriteLine("Dummy Dum from XML: " + dummyDum.ToString());
 
             #endregion
         }

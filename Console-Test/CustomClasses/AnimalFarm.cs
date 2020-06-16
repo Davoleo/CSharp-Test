@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
-using System.Runtime.Remoting.Messaging;
 
-namespace Console_Test.Collections
+namespace Console_Test.CustomClasses
 {
     class AnimalFarm : IEnumerable
     {

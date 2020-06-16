@@ -1,8 +1,14 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
-namespace Console_Test
+namespace Console_Test.CustomClasses
 {
-    class Animal
+
+    /// <summary>
+    /// Example of a Serializable class representing an animal
+    /// </summary>
+    [Serializable]
+    public class Animal : ISerializable
     {
         //Access Limits
         //public - protected - private
@@ -57,6 +63,15 @@ namespace Console_Test
             count++;
         }
 
+        public Animal(SerializationInfo info, StreamingContext context)
+        {
+            Id = (int) info.GetValue("Id", typeof(int));
+            Name = (string) info.GetValue("Name", typeof(string));
+            Height = (double) info.GetValue("Height", typeof(double));
+            Weight = (double) info.GetValue("Weight", typeof(double));
+            Sound = (string) info.GetValue("Sound", typeof(string));
+        }
+
         //Static fields and methods - common between instances of this class
         private static int count = 0;
         public static int GetCount() {
@@ -68,6 +83,20 @@ namespace Console_Test
         {
             return String.Format("{0} is {1} meters tall, weighs {2} kg and makes this sound: {3}", name, Height,
                 Weight, Sound);
+        }
+
+        /// <summary>
+        /// Method that serializes the object data
+        /// </summary>
+        /// <param name="info">Holds Key-Value Pairs for the data in your context</param>
+        /// <param name="context">Holds additional information</param>
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Id", Id);
+            info.AddValue("Name", name);
+            info.AddValue("Height", Height);
+            info.AddValue("Weight", Weight);
+            info.AddValue("Sound", Sound);
         }
     }
 }
